@@ -11,4 +11,10 @@ public class MowerTest {
         assertNotNull(aMower.getPosition());
     }
 
+    @Test
+    public void aMowerHasTheDefaultPositionZeroZero() {
+        Mower aMower = new Mower();
+        assertEquals(new Position(0, 0), aMower.getPosition());
+    }
+
 }
