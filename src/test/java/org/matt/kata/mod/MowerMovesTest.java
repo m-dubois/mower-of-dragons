@@ -13,4 +13,12 @@ public class MowerMovesTest {
         assertEquals(Direction.NORTH, aMower.getDirection());
     }
 
+    @Test
+    public void aMowerInPositionZeroZeroAndTurnedEastMovesFinishesOneZeroFacedEast() {
+        Mower aMower = new Mower(0, 0, Direction.EAST);
+        aMower.movesForward();
+        assertEquals(new Position(1, 0), aMower.getPosition());
+        assertEquals(Direction.EAST, aMower.getDirection());
+    }
+
 }
