@@ -23,4 +23,9 @@ public class MowerTest {
         assertEquals(new Position(2, 5), aMower.getPosition());
     }
 
+    @Test
+    public void aMowerHasADirection() {
+        Mower aMower = new Mower();
+        assertNotNull(aMower.getDirection());
+    }
 }
