@@ -4,11 +4,11 @@ import java.util.Objects;
 
 public class Position {
 
-
     private int x = 0;
     private int y = 0;
 
     public Position() {
+        // x, y to default value (0, 0)
     }
 
     public Position(int x, int y) {
