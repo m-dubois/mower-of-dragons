@@ -41,12 +41,16 @@ public class Position {
                 && Objects.equals(y, otherPosition.getY());
     }
 
+    public void incrementX() {
+        this.x++;
+    }
+
     public void incrementY() {
         this.y++;
     }
 
-    public void incrementX() {
-        this.x++;
+    public void decrementY() {
+        this.y--;
     }
 
     @Override

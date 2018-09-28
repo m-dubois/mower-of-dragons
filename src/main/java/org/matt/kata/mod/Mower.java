@@ -41,6 +41,8 @@ public class Mower {
             this.getPosition().incrementY();
         } else if (this.getDirection().equals(Direction.EAST)) {
             this.getPosition().incrementX();
+        } else if (this.getDirection().equals(Direction.SOUTH)) {
+            this.getPosition().decrementY();
         }
     }
 }
