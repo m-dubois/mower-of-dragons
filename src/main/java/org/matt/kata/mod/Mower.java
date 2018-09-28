@@ -18,4 +18,8 @@ public class Mower {
     public Object getPosition() {
         return this.position;
     }
+
+    public Object getDirection() {
+        return Direction.NORTH;
+    }
 }
