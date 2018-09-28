@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 
 public class MowerMovesTest {
 
+    // --- No constraints moves ----------------------------------------------------------------------------------------
+
     @Test
     public void aMowerInPositionZeroZeroAndTurnedNorthMovesFinishesZeroOneFacedNorth() {
         Mower aMower = new Mower(0, 0, Direction.NORTH);
@@ -36,4 +38,15 @@ public class MowerMovesTest {
         assertEquals(new Position(0, 1), aMower.getPosition());
         assertEquals(Direction.WEST, aMower.getDirection());
     }
+
+    // --- Moves with constraints --------------------------------------------------------------------------------------
+
+    @Test
+    public void aMowerInPositionZeroZeroAndTurnedWestMovesFinishesZeroZeroFacedWest() {
+        Mower aMower = new Mower(0, 0, Direction.WEST);
+        aMower.movesForward();
+        assertEquals(new Position(0, 0), aMower.getPosition());
+        assertEquals(Direction.WEST, aMower.getDirection());
+    }
+
 }
