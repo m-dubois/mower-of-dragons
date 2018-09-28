@@ -17,4 +17,10 @@ public class MowerTest {
         assertEquals(new Position(0, 0), aMower.getPosition());
     }
 
+    @Test
+    public void aMowerIsInPositionTwoFive() {
+        Mower aMower = new Mower(2, 5);
+        assertEquals(new Position(2, 5), aMower.getPosition());
+    }
+
 }
