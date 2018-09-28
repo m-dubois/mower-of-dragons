@@ -48,4 +48,9 @@ public class Position {
     public void incrementX() {
         this.x++;
     }
+
+    @Override
+    public String toString() {
+        return String.format("(%d, %d)", x, y);
+    }
 }
