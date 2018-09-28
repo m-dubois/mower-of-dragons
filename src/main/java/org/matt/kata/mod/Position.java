@@ -44,4 +44,8 @@ public class Position {
     public void incrementY() {
         this.y++;
     }
+
+    public void incrementX() {
+        this.x++;
+    }
 }

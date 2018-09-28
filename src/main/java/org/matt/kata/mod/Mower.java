@@ -37,6 +37,10 @@ public class Mower {
     }
 
     public void movesForward() {
-        this.getPosition().incrementY();
+        if (this.getDirection().equals(Direction.NORTH)) {
+            this.getPosition().incrementY();
+        } else if (this.getDirection().equals(Direction.EAST)) {
+            this.getPosition().incrementX();
+        }
     }
 }
