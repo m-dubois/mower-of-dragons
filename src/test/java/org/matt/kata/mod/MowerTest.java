@@ -48,7 +48,7 @@ public class MowerTest {
         Mower aMower = new Mower(0, 0, Direction.NORTH);
         aMower.movesForward();
         assertEquals(new Position(0, 1), aMower.getPosition());
-        assertEquals(Direction.NORTH aMower.getDirection());
+        assertEquals(Direction.NORTH, aMower.getDirection());
     }
 
 }

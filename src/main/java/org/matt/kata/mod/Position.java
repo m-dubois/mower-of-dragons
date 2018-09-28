@@ -40,4 +40,8 @@ public class Position {
         return Objects.equals(x, otherPosition.getX())
                 && Objects.equals(y, otherPosition.getY());
     }
+
+    public void incrementY() {
+        this.y++;
+    }
 }

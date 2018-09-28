@@ -24,15 +24,19 @@ public class Mower {
         this.direction = direction;
     }
 
-    public Object getPosition() {
+    public Position getPosition() {
         return this.position;
     }
 
-    public Object getDirection() {
+    public Direction getDirection() {
         return this.direction;
     }
 
     public void setDirection(Direction direction) {
         this.direction = direction;
+    }
+
+    public void movesForward() {
+        this.getPosition().incrementY();
     }
 }
