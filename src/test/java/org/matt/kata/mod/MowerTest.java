@@ -28,4 +28,11 @@ public class MowerTest {
         Mower aMower = new Mower();
         assertNotNull(aMower.getDirection());
     }
+
+    @Test
+    public void aMowerHasTheWestDirection() {
+        Mower aMower = new Mower();
+        aMower.setDirection(Direction.WEST);
+        assertEquals(Direction.WEST, aMower.getDirection());
+    }
 }
