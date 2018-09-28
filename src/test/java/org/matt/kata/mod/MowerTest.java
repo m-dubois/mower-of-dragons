@@ -35,4 +35,11 @@ public class MowerTest {
         aMower.setDirection(Direction.WEST);
         assertEquals(Direction.WEST, aMower.getDirection());
     }
+
+    @Test
+    public void aMowerHasTheSouthDirectionAndIsInPositionZeroTwo() {
+        Mower aMower = new Mower(0, 2, Direction.SOUTH);
+        assertEquals(new Position(0, 2), aMower.getPosition());
+        assertEquals(Direction.SOUTH, aMower.getDirection());
+    }
 }
