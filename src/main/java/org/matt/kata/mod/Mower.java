@@ -8,6 +8,7 @@ public class Mower {
 
     private Position position = null;
     private Direction direction = null;
+    private Lawn lawn = null;
 
     public Mower() {
         this.position = new Position(DEFAULT_X_POSITION, DEFAULT_Y_POSITION);
@@ -19,9 +20,10 @@ public class Mower {
         this.direction = DEFAULT_DIRECTION;
     }
 
-    public Mower(int x, int y, Direction direction) {
+    public Mower(int x, int y, Direction direction, Lawn lawn) {
         this.position = new Position(x, y);
         this.direction = direction;
+        this.lawn = lawn;
     }
 
     public Position getPosition() {
@@ -38,7 +40,9 @@ public class Mower {
 
     public void movesForward() {
         if (this.getDirection().equals(Direction.NORTH)) {
-            this.getPosition().incrementY();
+            if (this.getPosition().getY() < this.lawn.getSizeY()) {
+                this.getPosition().incrementY();
+            }
         } else if (this.getDirection().equals(Direction.EAST)) {
             this.getPosition().incrementX();
         } else if (this.getDirection().equals(Direction.SOUTH)) {

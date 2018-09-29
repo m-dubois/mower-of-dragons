@@ -9,7 +9,7 @@ public class MowerMovesTest {
 
     @Test
     public void aMowerInPositionZeroZeroAndTurnedNorthMovesFinishesZeroOneFacedNorth() {
-        Mower aMower = new Mower(0, 0, Direction.NORTH);
+        Mower aMower = new Mower(0, 0, Direction.NORTH, new Lawn(5, 5));
         aMower.movesForward();
         assertEquals(new Position(0, 1), aMower.getPosition());
         assertEquals(Direction.NORTH, aMower.getDirection());
@@ -17,7 +17,7 @@ public class MowerMovesTest {
 
     @Test
     public void aMowerInPositionZeroZeroAndTurnedEastMovesFinishesOneZeroFacedEast() {
-        Mower aMower = new Mower(0, 0, Direction.EAST);
+        Mower aMower = new Mower(0, 0, Direction.EAST, new Lawn(5, 5));
         aMower.movesForward();
         assertEquals(new Position(1, 0), aMower.getPosition());
         assertEquals(Direction.EAST, aMower.getDirection());
@@ -25,7 +25,7 @@ public class MowerMovesTest {
 
     @Test
     public void aMowerInPositionOneOneAndTurnedSouthMovesFinishesOneZeroFacedSouth() {
-        Mower aMower = new Mower(1, 1, Direction.SOUTH);
+        Mower aMower = new Mower(1, 1, Direction.SOUTH, new Lawn(5, 5));
         aMower.movesForward();
         assertEquals(new Position(1, 0), aMower.getPosition());
         assertEquals(Direction.SOUTH, aMower.getDirection());
@@ -33,7 +33,7 @@ public class MowerMovesTest {
 
     @Test
     public void aMowerInPositionOneOneAndTurnedWestMovesFinishesOneZeroFacedWest() {
-        Mower aMower = new Mower(1, 1, Direction.WEST);
+        Mower aMower = new Mower(1, 1, Direction.WEST, new Lawn(5, 5));
         aMower.movesForward();
         assertEquals(new Position(0, 1), aMower.getPosition());
         assertEquals(Direction.WEST, aMower.getDirection());
@@ -43,7 +43,7 @@ public class MowerMovesTest {
 
     @Test
     public void aMowerInPositionZeroZeroAndTurnedWestMovesFinishesZeroZeroFacedWest() {
-        Mower aMower = new Mower(0, 0, Direction.WEST);
+        Mower aMower = new Mower(0, 0, Direction.WEST, new Lawn(5, 5));
         aMower.movesForward();
         assertEquals(new Position(0, 0), aMower.getPosition());
         assertEquals(Direction.WEST, aMower.getDirection());
@@ -51,7 +51,7 @@ public class MowerMovesTest {
 
     @Test
     public void aMowerInPositionZeroZeroAndTurnedSouthMovesFinishesZeroZeroFacedSouth() {
-        Mower aMower = new Mower(0, 0, Direction.SOUTH);
+        Mower aMower = new Mower(0, 0, Direction.SOUTH, new Lawn(5, 5));
         aMower.movesForward();
         assertEquals(new Position(0, 0), aMower.getPosition());
         assertEquals(Direction.SOUTH, aMower.getDirection());
@@ -59,8 +59,7 @@ public class MowerMovesTest {
 
     @Test
     public void aMowerInPositionOneOneAndTurnedNorthOnAOneOneLawnMovesFinishesZeroZeroFacedSouth() {
-        Lawn lawn = new Lawn(1, 1);
-        Mower aMower = new Mower(1, 1, Direction.NORTH, lawn);
+        Mower aMower = new Mower(1, 1, Direction.NORTH, new Lawn(1, 1));
         aMower.movesForward();
         assertEquals(new Position(1, 1), aMower.getPosition());
         assertEquals(Direction.NORTH, aMower.getDirection());
