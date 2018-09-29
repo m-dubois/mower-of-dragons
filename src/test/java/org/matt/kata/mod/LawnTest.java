@@ -19,6 +19,7 @@ public class LawnTest {
         assertEquals(3, aLawn.getMaxPositionX());
         assertEquals(2, aLawn.getMaxPositionY());
         aLawn.addMower(new Mower(0, 0));
+        assertEquals(1, aLawn.mowers.size());
     }
 
 }
