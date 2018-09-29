@@ -72,4 +72,20 @@ public class MowerMovesTest {
         assertEquals(new Position(1, 1), aMower.getPosition());
         assertEquals(Direction.EAST, aMower.getDirection());
     }
+
+    @Test
+    public void aMowerInPositionOneTwoAndTurnedNorthOnAThreeTwoLawnMovesFinishesOneTwoFacedNorth() {
+        Mower aMower = new Mower(1, 2, Direction.NORTH, new Lawn(3, 2));
+        aMower.movesForward();
+        assertEquals(new Position(1, 2), aMower.getPosition());
+        assertEquals(Direction.NORTH, aMower.getDirection());
+    }
+
+    @Test
+    public void aMowerInPositionTwoTwoAndTurnedEastOnATwoThreeLawnMovesFinishesTwoTwoFacedEast() {
+        Mower aMower = new Mower(2, 2, Direction.EAST, new Lawn(2, 3));
+        aMower.movesForward();
+        assertEquals(new Position(2, 2), aMower.getPosition());
+        assertEquals(Direction.EAST, aMower.getDirection());
+    }
 }
