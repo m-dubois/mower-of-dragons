@@ -4,23 +4,19 @@ import java.util.Objects;
 
 public class Position {
 
-    private int x = 0;
-    private int y = 0;
+    private int x;
+    private int y;
 
-    public Position() {
-        // x, y to default value (0, 0)
-    }
-
-    public Position(int x, int y) {
+    Position(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public int getX() {
+    int getX() {
         return x;
     }
 
-    public int getY() {
+    int getY() {
         return y;
     }
 
@@ -41,19 +37,19 @@ public class Position {
                 && Objects.equals(y, otherPosition.getY());
     }
 
-    public void incrementX() {
+    void incrementX() {
         this.x++;
     }
 
-    public void decrementX() {
+    void decrementX() {
         this.x--;
     }
 
-    public void incrementY() {
+    void incrementY() {
         this.y++;
     }
 
-    public void decrementY() {
+    void decrementY() {
         this.y--;
     }
 
