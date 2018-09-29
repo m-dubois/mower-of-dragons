@@ -40,11 +40,11 @@ public class Mower {
 
     public void movesForward() {
         if (this.getDirection().equals(Direction.NORTH)) {
-            if (this.getPosition().getY() < this.lawn.getSizeY()) {
+            if (this.getPosition().getY() < this.lawn.getMaxPositionY()) {
                 this.getPosition().incrementY();
             }
         } else if (this.getDirection().equals(Direction.EAST)) {
-            if (this.getPosition().getY() < this.lawn.getSizeX()) {
+            if (this.getPosition().getY() < this.lawn.getMaxPositionX()) {
                 this.getPosition().incrementX();
             }
         } else if (this.getDirection().equals(Direction.SOUTH)) {

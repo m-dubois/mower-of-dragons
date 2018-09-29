@@ -2,19 +2,19 @@ package org.matt.kata.mod;
 
 public class Lawn {
 
-    private int sizeX;
-    private int sizeY;
+    private int maxPositionX;
+    private int maxPositionY;
 
-    public Lawn(int x, int y) {
-        this.sizeX = x;
-        this.sizeY = y;
+    public Lawn(int maxPositionX, int maxPositionY) {
+        this.maxPositionX = maxPositionX;
+        this.maxPositionY = maxPositionY;
     }
 
-    public int getSizeY() {
-        return sizeY;
+    public int getMaxPositionY() {
+        return maxPositionY;
     }
 
-    public int getSizeX() {
-        return sizeX;
+    public int getMaxPositionX() {
+        return maxPositionX;
     }
 }
