@@ -57,4 +57,18 @@ public class Mower {
             }
         }
     }
+
+    public void turnLeft() {
+        if (this.getDirection().equals(Direction.NORTH)) {
+            this.direction = Direction.WEST;
+        } else if (this.getDirection().equals(Direction.WEST)) {
+            this.direction = Direction.SOUTH;
+        } else if (this.getDirection().equals(Direction.SOUTH)) {
+            this.direction = Direction.EAST;
+        } else if (this.getDirection().equals(Direction.EAST)) {
+            this.direction = Direction.NORTH;
+        } else {
+            throw new RuntimeException("Unexpected direction: " + this.getDirection());
+        }
+    }
 }
