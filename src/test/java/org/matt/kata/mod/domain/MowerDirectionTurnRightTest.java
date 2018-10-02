@@ -3,8 +3,6 @@ package org.matt.kata.mod.domain;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.matt.kata.mod.domain.Direction;
-import org.matt.kata.mod.domain.Mower;
 
 import java.util.Arrays;
 import java.util.Collection;

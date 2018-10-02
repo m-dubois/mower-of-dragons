@@ -1,12 +1,8 @@
 package org.matt.kata.mod.domain;
 
 import org.junit.Test;
-import org.matt.kata.mod.domain.Direction;
-import org.matt.kata.mod.domain.Lawn;
-import org.matt.kata.mod.domain.Mower;
-import org.matt.kata.mod.domain.Position;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class MowerMovesTest {
 

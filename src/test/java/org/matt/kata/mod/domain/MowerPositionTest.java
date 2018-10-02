@@ -1,8 +1,6 @@
 package org.matt.kata.mod.domain;
 
 import org.junit.Test;
-import org.matt.kata.mod.domain.Mower;
-import org.matt.kata.mod.domain.Position;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
