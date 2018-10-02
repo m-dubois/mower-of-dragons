@@ -1,4 +1,6 @@
-package org.matt.kata.mod;
+package org.matt.kata.mod.domain.commands;
+
+import org.matt.kata.mod.domain.Mower;
 
 public class MoveForwardCommand implements Command {
 

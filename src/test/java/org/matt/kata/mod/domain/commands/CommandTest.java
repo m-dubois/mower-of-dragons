@@ -1,8 +1,11 @@
-package org.matt.kata.mod;
+package org.matt.kata.mod.domain.commands;
 
+import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
+import org.matt.kata.mod.domain.Direction;
+import org.matt.kata.mod.domain.Lawn;
+import org.matt.kata.mod.domain.Mower;
+import org.matt.kata.mod.domain.Position;
 
 public class CommandTest {
 
@@ -13,8 +16,8 @@ public class CommandTest {
         Command command = new MoveForwardCommand(aMower);
         command.execute();
 
-        assertEquals(new Position(0, 1), aMower.getPosition());
-        assertEquals(Direction.NORTH, aMower.getDirection());
+        Assert.assertEquals(new Position(0, 1), aMower.getPosition());
+        Assert.assertEquals(Direction.NORTH, aMower.getDirection());
     }
 
     @Test
@@ -24,8 +27,8 @@ public class CommandTest {
         Command command = new TurnLeftCommand(aMower);
         command.execute();
 
-        assertEquals(new Position(0, 0), aMower.getPosition());
-        assertEquals(Direction.WEST, aMower.getDirection());
+        Assert.assertEquals(new Position(0, 0), aMower.getPosition());
+        Assert.assertEquals(Direction.WEST, aMower.getDirection());
     }
 
     @Test
@@ -35,7 +38,7 @@ public class CommandTest {
         Command command = new TurnRightCommand(aMower);
         command.execute();
 
-        assertEquals(new Position(0, 0), aMower.getPosition());
-        assertEquals(Direction.EAST, aMower.getDirection());
+        Assert.assertEquals(new Position(0, 0), aMower.getPosition());
+        Assert.assertEquals(Direction.EAST, aMower.getDirection());
     }
 }

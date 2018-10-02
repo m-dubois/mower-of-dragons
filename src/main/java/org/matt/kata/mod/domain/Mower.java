@@ -1,4 +1,4 @@
-package org.matt.kata.mod;
+package org.matt.kata.mod.domain;
 
 public class Mower {
 
@@ -26,11 +26,11 @@ public class Mower {
         this.lawn = lawn;
     }
 
-    Position getPosition() {
+    public Position getPosition() {
         return this.position;
     }
 
-    Direction getDirection() {
+    public Direction getDirection() {
         return this.direction;
     }
 
@@ -38,7 +38,7 @@ public class Mower {
         this.direction = direction;
     }
 
-    void movesForward() {
+    public void movesForward() {
         if (this.getDirection().equals(Direction.NORTH)) {
             if (this.getPosition().getY() < this.lawn.getMaxPositionY()) {
                 this.getPosition().incrementY();

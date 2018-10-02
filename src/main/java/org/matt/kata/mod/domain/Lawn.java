@@ -1,15 +1,15 @@
-package org.matt.kata.mod;
+package org.matt.kata.mod.domain;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Lawn {
+public class Lawn {
 
     private int maxPositionX;
     private int maxPositionY;
     List<Mower> mowers;
 
-    Lawn(int maxPositionX, int maxPositionY) {
+    public Lawn(int maxPositionX, int maxPositionY) {
         this.maxPositionX = maxPositionX;
         this.maxPositionY = maxPositionY;
         this.mowers = new ArrayList<>();
