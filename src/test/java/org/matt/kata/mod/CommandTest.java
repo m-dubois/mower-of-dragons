@@ -28,4 +28,14 @@ public class CommandTest {
         assertEquals(Direction.WEST, aMower.getDirection());
     }
 
+    @Test
+    public void turnRightCommand() {
+        Mower aMower = new Mower(0, 0, Direction.NORTH, new Lawn(5, 5));
+
+        Command command = new TurnRightCommand(aMower);
+        command.execute();
+
+        assertEquals(new Position(0, 0), aMower.getPosition());
+        assertEquals(Direction.EAST, aMower.getDirection());
+    }
 }
