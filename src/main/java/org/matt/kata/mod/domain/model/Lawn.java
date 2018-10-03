@@ -1,4 +1,4 @@
-package org.matt.kata.mod.domain;
+package org.matt.kata.mod.domain.model;
 
 import java.util.ArrayList;
 import java.util.List;

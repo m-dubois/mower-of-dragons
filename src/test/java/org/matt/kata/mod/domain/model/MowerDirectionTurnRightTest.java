@@ -1,8 +1,10 @@
-package org.matt.kata.mod.domain;
+package org.matt.kata.mod.domain.model;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.matt.kata.mod.domain.model.Direction;
+import org.matt.kata.mod.domain.model.Mower;
 
 import java.util.Arrays;
 import java.util.Collection;

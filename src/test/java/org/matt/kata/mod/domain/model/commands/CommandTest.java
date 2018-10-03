@@ -1,11 +1,11 @@
-package org.matt.kata.mod.domain.commands;
+package org.matt.kata.mod.domain.model.commands;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.matt.kata.mod.domain.Direction;
-import org.matt.kata.mod.domain.Lawn;
-import org.matt.kata.mod.domain.Mower;
-import org.matt.kata.mod.domain.Position;
+import org.matt.kata.mod.domain.model.Direction;
+import org.matt.kata.mod.domain.model.Lawn;
+import org.matt.kata.mod.domain.model.Mower;
+import org.matt.kata.mod.domain.model.Position;
 
 public class CommandTest {
 

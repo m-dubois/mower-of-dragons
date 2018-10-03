@@ -1,8 +1,8 @@
-package org.matt.kata.mod.domain;
+package org.matt.kata.mod.domain.model;
 
 import org.junit.Test;
-import org.matt.kata.mod.domain.Lawn;
-import org.matt.kata.mod.domain.Mower;
+import org.matt.kata.mod.domain.model.Lawn;
+import org.matt.kata.mod.domain.model.Mower;
 
 import static org.junit.Assert.assertEquals;
 

@@ -1,6 +1,6 @@
-package org.matt.kata.mod.domain.commands;
+package org.matt.kata.mod.domain.model.commands;
 
-import org.matt.kata.mod.domain.Mower;
+import org.matt.kata.mod.domain.model.Mower;
 
 public class TurnRightCommand implements Command {
 

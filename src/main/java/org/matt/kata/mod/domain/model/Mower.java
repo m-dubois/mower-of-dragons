@@ -1,4 +1,4 @@
-package org.matt.kata.mod.domain;
+package org.matt.kata.mod.domain.model;
 
 public class Mower {
 
