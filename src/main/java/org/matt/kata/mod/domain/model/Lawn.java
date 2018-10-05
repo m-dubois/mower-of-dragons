@@ -15,11 +15,11 @@ public class Lawn {
         this.mowers = new ArrayList<>();
     }
 
-    int getMaxPositionY() {
+    public int getMaxPositionY() {
         return maxPositionY;
     }
 
-    int getMaxPositionX() {
+    public int getMaxPositionX() {
         return maxPositionX;
     }
 
