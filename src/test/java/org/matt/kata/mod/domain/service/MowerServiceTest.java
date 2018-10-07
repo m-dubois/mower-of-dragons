@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.matt.kata.mod.domain.model.Direction;
 import org.matt.kata.mod.domain.model.Mower;
 import org.matt.kata.mod.domain.model.Position;
+import org.matt.kata.mod.infrastructure.service.MowerServiceImpl;
 
 import static org.junit.Assert.assertEquals;
 
