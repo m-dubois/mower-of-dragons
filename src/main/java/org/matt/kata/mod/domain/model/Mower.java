@@ -1,5 +1,11 @@
 package org.matt.kata.mod.domain.model;
 
+import org.matt.kata.mod.domain.model.commands.Command;
+import org.matt.kata.mod.domain.model.commands.MoveForwardCommand;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Mower {
 
     private static final int DEFAULT_X_POSITION = 0;
@@ -84,5 +90,11 @@ public class Mower {
         } else {
             throw new RuntimeException("Unexpected direction: " + this.getDirection());
         }
+    }
+
+    public List<Command> getCommands() {
+        List<Command> commands = new ArrayList<>();
+        commands.add(new MoveForwardCommand(this));
+        return commands;
     }
 }
