@@ -29,7 +29,13 @@ public class MowerServiceTest {
 
     @Test
     public void enqueueMoveCommand() {
+        MowerService mowerService = new MowerServiceImpl();
+        Lawn aLawn = new Lawn(8, 12);
+        Mower aMower = mowerService.createMower(4, 7, Direction.EAST, aLawn);
+        mowerService.enqueueMoveForwardCommand();
 
+        Assert.assertEquals(1, aMower.getCommands().size());
+        Assert.assertEquals(MoveForwardCommand.class, aMower.getCommands().get(0).getClass());
     }
 
 }
