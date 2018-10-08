@@ -44,36 +44,8 @@ public class Mower {
         return this.direction;
     }
 
-    void setDirection(Direction direction) {
+    public void setDirection(Direction direction) {
         this.direction = direction;
-    }
-
-    public void turnLeft() {
-        if (this.getDirection().equals(Direction.NORTH)) {
-            this.direction = Direction.WEST;
-        } else if (this.getDirection().equals(Direction.WEST)) {
-            this.direction = Direction.SOUTH;
-        } else if (this.getDirection().equals(Direction.SOUTH)) {
-            this.direction = Direction.EAST;
-        } else if (this.getDirection().equals(Direction.EAST)) {
-            this.direction = Direction.NORTH;
-        } else {
-            throw new RuntimeException("Unexpected direction: " + this.getDirection());
-        }
-    }
-
-    public void turnRight() {
-        if (this.getDirection().equals(Direction.NORTH)) {
-            this.direction = Direction.EAST;
-        } else if (this.getDirection().equals(Direction.EAST)) {
-            this.direction = Direction.SOUTH;
-        } else if (this.getDirection().equals(Direction.SOUTH)) {
-            this.direction = Direction.WEST;
-        } else if (this.getDirection().equals(Direction.WEST)) {
-            this.direction = Direction.NORTH;
-        } else {
-            throw new RuntimeException("Unexpected direction: " + this.getDirection());
-        }
     }
 
     public List<Command> getCommands() {

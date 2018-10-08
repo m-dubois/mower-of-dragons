@@ -2,10 +2,17 @@ package org.matt.kata.mod.domain.model.commands;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 import org.matt.kata.mod.domain.model.Direction;
 import org.matt.kata.mod.domain.model.Lawn;
 import org.matt.kata.mod.domain.model.Mower;
 import org.matt.kata.mod.domain.model.Position;
+
+import java.util.Arrays;
+import java.util.Collection;
+
+import static org.junit.Assert.assertEquals;
 
 public class TurnCommandTest {
 
