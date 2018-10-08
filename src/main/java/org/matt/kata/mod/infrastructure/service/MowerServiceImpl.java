@@ -15,7 +15,7 @@ public class MowerServiceImpl implements MowerService {
 
     @Override
     public void enqueueMoveForwardCommand(Mower aMower) {
-        Command command = new MoveForwardCommand(aMower);
+        Command command = new MoveForwardCommand(aMower, aMower.getLawn());
 
     }
 

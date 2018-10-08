@@ -7,18 +7,7 @@ import org.matt.kata.mod.domain.model.Lawn;
 import org.matt.kata.mod.domain.model.Mower;
 import org.matt.kata.mod.domain.model.Position;
 
-public class CommandTest {
-
-    @Test
-    public void moveForwardCommand() {
-        Mower aMower = new Mower(0, 0, Direction.NORTH, new Lawn(5, 5));
-
-        Command command = new MoveForwardCommand(aMower);
-        command.execute();
-
-        Assert.assertEquals(new Position(0, 1), aMower.getPosition());
-        Assert.assertEquals(Direction.NORTH, aMower.getDirection());
-    }
+public class TurnCommandTest {
 
     @Test
     public void turnLeftCommand() {
@@ -44,8 +33,9 @@ public class CommandTest {
 
     @Test
     public void enqueueMoveForwardCommand() {
-        Mower aMower = new Mower(0, 0, Direction.NORTH, new Lawn(5, 5));
-        Command command = new MoveForwardCommand(aMower);
+        Lawn aLawn = new Lawn(5, 5);
+        Mower aMower = new Mower(0, 0, Direction.NORTH, aLawn);
+        Command command = new MoveForwardCommand(aMower, aLawn);
         Assert.assertEquals(1, aMower.getCommands().size());
         Assert.assertEquals(MoveForwardCommand.class, aMower.getCommands().get(0).getClass());
     }

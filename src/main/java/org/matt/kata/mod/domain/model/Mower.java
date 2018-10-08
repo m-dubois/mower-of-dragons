@@ -32,6 +32,10 @@ public class Mower {
         this.lawn = lawn;
     }
 
+    public Lawn getLawn() {
+        return this.lawn;
+    }
+
     public Position getPosition() {
         return this.position;
     }
@@ -42,26 +46,6 @@ public class Mower {
 
     void setDirection(Direction direction) {
         this.direction = direction;
-    }
-
-    public void movesForward() {
-        if (this.getDirection().equals(Direction.NORTH)) {
-            if (this.getPosition().getY() < this.lawn.getMaxPositionY()) {
-                this.getPosition().incrementY();
-            }
-        } else if (this.getDirection().equals(Direction.EAST)) {
-            if (this.getPosition().getY() < this.lawn.getMaxPositionX()) {
-                this.getPosition().incrementX();
-            }
-        } else if (this.getDirection().equals(Direction.SOUTH)) {
-            if (this.getPosition().getY() > 0) {
-                this.getPosition().decrementY();
-            }
-        } else if (this.getDirection().equals(Direction.WEST)) {
-            if (this.getPosition().getX() > 0) {
-                this.getPosition().decrementX();
-            }
-        }
     }
 
     public void turnLeft() {
@@ -94,7 +78,8 @@ public class Mower {
 
     public List<Command> getCommands() {
         List<Command> commands = new ArrayList<>();
-        commands.add(new MoveForwardCommand(this));
+        commands.add(new MoveForwardCommand(this, this.lawn));
         return commands;
     }
+
 }

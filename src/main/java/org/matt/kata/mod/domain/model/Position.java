@@ -12,11 +12,11 @@ public class Position {
         this.y = y;
     }
 
-    int getX() {
+    public int getX() {
         return x;
     }
 
-    int getY() {
+    public int getY() {
         return y;
     }
 
@@ -37,19 +37,19 @@ public class Position {
                 && Objects.equals(y, otherPosition.getY());
     }
 
-    void incrementX() {
+    public void incrementX() {
         this.x++;
     }
 
-    void decrementX() {
+    public void decrementX() {
         this.x--;
     }
 
-    void incrementY() {
+    public void incrementY() {
         this.y++;
     }
 
-    void decrementY() {
+    public void decrementY() {
         this.y--;
     }
 
