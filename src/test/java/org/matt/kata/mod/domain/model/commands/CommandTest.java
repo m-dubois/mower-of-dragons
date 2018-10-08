@@ -41,4 +41,13 @@ public class CommandTest {
         Assert.assertEquals(new Position(0, 0), aMower.getPosition());
         Assert.assertEquals(Direction.EAST, aMower.getDirection());
     }
+
+    @Test
+    public void enqueueMoveForwardCommand() {
+        Mower aMower = new Mower(0, 0, Direction.NORTH, new Lawn(5, 5));
+        Command command = new MoveForwardCommand(aMower);
+        Assert.assertEquals(1, aMower.getCommands().size());
+        Assert.assertEquals(MoveForwardCommand.class, aMower.getCommands().get(0).getClass());
+    }
+
 }

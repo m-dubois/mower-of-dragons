@@ -30,9 +30,6 @@ public class MowerServiceTest {
     @Test
     public void enqueueMoveCommand() {
 
-        Mower aMower = new Mower(3, 2, Direction.SOUTH, new Lawn(8, 6));
-        Command command = new MoveForwardCommand(aMower);
-        Assert.assertEquals(1, aMower.getCommands().size());
     }
 
 }
