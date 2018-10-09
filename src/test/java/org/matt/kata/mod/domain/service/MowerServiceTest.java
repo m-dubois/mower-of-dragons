@@ -20,7 +20,7 @@ public class MowerServiceTest {
 
         Lawn aLawn = new Lawn(8, 12);
 
-        Mower aMower = mowerService.createMower(4, 7, Direction.EAST, aLawn);
+        Mower aMower = mowerService.createMower(4, 7, Direction.EAST);
 
         assertEquals(new Position(4, 7), aMower.getPosition());
         assertEquals(Direction.EAST, aMower.getDirection());
@@ -30,7 +30,7 @@ public class MowerServiceTest {
     public void enqueueMoveCommand() {
         MowerService mowerService = new MowerServiceImpl();
         Lawn aLawn = new Lawn(8, 12);
-        Mower aMower = mowerService.createMower(4, 7, Direction.EAST, aLawn);
+        Mower aMower = mowerService.createMower(4, 7, Direction.EAST);
         mowerService.enqueueMoveForwardCommand(aMower);
 
         Assert.assertEquals(1, aMower.getCommands().size());

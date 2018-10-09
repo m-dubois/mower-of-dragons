@@ -26,14 +26,17 @@ public class Mower {
         this.direction = DEFAULT_DIRECTION;
     }
 
-    public Mower(int x, int y, Direction direction, Lawn lawn) {
+    public Mower(int x, int y, Direction direction) {
         this.position = new Position(x, y);
         this.direction = direction;
-        this.lawn = lawn;
     }
 
     public Lawn getLawn() {
         return this.lawn;
+    }
+
+    public void setLawn(Lawn lawn) {
+        this.lawn = lawn;
     }
 
     public Position getPosition() {
