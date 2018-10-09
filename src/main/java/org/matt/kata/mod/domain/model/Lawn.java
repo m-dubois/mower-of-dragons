@@ -1,7 +1,6 @@
 package org.matt.kata.mod.domain.model;
 
 import java.util.ArrayList;
-import java.util.BitSet;
 import java.util.List;
 
 public class Lawn {
@@ -24,7 +23,7 @@ public class Lawn {
         return maxPositionX;
     }
 
-    void addMower(Mower mower) {
+    public void addMower(Mower mower) {
         this.mowers.add(mower);
     }
 

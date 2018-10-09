@@ -13,7 +13,7 @@ public class LawnServiceImpl implements LawnService {
 
     @Override
     public void addMowerToLawn(Mower aMower, Lawn aLawn) {
-        aLawn.getMowers().add(aMower);
+        aLawn.addMower(aMower);
         aMower.setLawn(aLawn);
     }
 }
