@@ -1,7 +1,6 @@
 package org.matt.kata.mod.domain.model;
 
 import org.matt.kata.mod.domain.model.commands.Command;
-import org.matt.kata.mod.domain.model.commands.MoveForwardCommand;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,20 +14,20 @@ public class Mower {
     private Position position;
     private Direction direction;
     private Lawn lawn;
+    List<Command> commands;
 
     public Mower() {
-        this.position = new Position(DEFAULT_X_POSITION, DEFAULT_Y_POSITION);
-        this.direction = DEFAULT_DIRECTION;
+        this(DEFAULT_X_POSITION, DEFAULT_Y_POSITION);
     }
 
     public Mower(int x, int y) {
-        this.position = new Position(x, y);
-        this.direction = DEFAULT_DIRECTION;
+        this(x, y, DEFAULT_DIRECTION);
     }
 
     public Mower(int x, int y, Direction direction) {
         this.position = new Position(x, y);
         this.direction = direction;
+        this.commands = new ArrayList<>();
     }
 
     public Lawn getLawn() {
@@ -52,9 +51,11 @@ public class Mower {
     }
 
     public List<Command> getCommands() {
-        List<Command> commands = new ArrayList<>();
-        commands.add(new MoveForwardCommand(this));
         return commands;
     }
 
+    public void addCommand(Command command) {
+        this.commands.add(command);
+        command.setMower(this);
+    }
 }

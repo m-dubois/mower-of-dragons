@@ -7,8 +7,20 @@ public class TurnLeftCommand implements Command {
 
     private Mower mower;
 
-    public TurnLeftCommand(Mower aMower) {
-        this.mower = aMower;
+    public TurnLeftCommand() {
+        super();
+    }
+
+    public Mower getMower() {
+        return mower;
+    }
+
+    public void setMower(Mower mower) {
+        this.mower = mower;
+
+        if (!this.getMower().getCommands().contains(this)) {
+            this.getMower().addCommand(this);
+        }
     }
 
     @Override

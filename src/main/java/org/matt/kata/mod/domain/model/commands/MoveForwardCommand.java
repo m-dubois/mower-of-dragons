@@ -7,8 +7,21 @@ public class MoveForwardCommand implements Command {
 
     private Mower mower;
 
-    public MoveForwardCommand(Mower aMower) {
-        this.mower = aMower;
+    public MoveForwardCommand() {
+        super();
+    }
+
+    public Mower getMower() {
+        return mower;
+    }
+
+    @Override
+    public void setMower(Mower mower) {
+        this.mower = mower;
+
+        if (!this.mower.getCommands().contains(this)) {
+            this.mower.addCommand(this);
+        }
     }
 
     @Override

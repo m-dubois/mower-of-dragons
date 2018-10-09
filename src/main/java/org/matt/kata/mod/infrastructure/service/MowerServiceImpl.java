@@ -15,7 +15,14 @@ public class MowerServiceImpl implements MowerService {
 
     @Override
     public void enqueueMoveForwardCommand(Mower aMower) {
-        Command command = new MoveForwardCommand(aMower);
+        Command command = new MoveForwardCommand();
+        ((MoveForwardCommand) command).setMower(aMower);
+    }
+
+    @Override
+    public void enqueueTurnLeftCommand(Mower aMower) {
+        Command command = new TurnLeftCommand();
+        aMower.addCommand(command);
     }
 
 }

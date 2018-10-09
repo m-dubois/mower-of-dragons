@@ -20,7 +20,8 @@ public class TurnCommandTest {
     public void turnLeftCommand() {
         Mower aMower = new Mower(0, 0, Direction.NORTH);
 
-        Command command = new TurnLeftCommand(aMower);
+        Command command = new TurnLeftCommand();
+        aMower.addCommand(command);
         command.execute();
 
         Assert.assertEquals(new Position(0, 0), aMower.getPosition());
@@ -31,7 +32,8 @@ public class TurnCommandTest {
     public void turnRightCommand() {
         Mower aMower = new Mower(0, 0, Direction.NORTH);
 
-        Command command = new TurnRightCommand(aMower);
+        Command command = new TurnRightCommand();
+        aMower.addCommand(command);
         command.execute();
 
         Assert.assertEquals(new Position(0, 0), aMower.getPosition());
@@ -42,7 +44,8 @@ public class TurnCommandTest {
     public void enqueueMoveForwardCommand() {
         Lawn aLawn = new Lawn(5, 5);
         Mower aMower = new Mower(0, 0, Direction.NORTH);
-        Command command = new MoveForwardCommand(aMower);
+        Command command = new MoveForwardCommand();
+        aMower.addCommand(command);
         Assert.assertEquals(1, aMower.getCommands().size());
         Assert.assertEquals(MoveForwardCommand.class, aMower.getCommands().get(0).getClass());
     }

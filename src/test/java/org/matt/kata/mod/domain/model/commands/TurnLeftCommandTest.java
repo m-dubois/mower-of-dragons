@@ -38,7 +38,8 @@ public class TurnLeftCommandTest {
         Mower aMower = new Mower();
         aMower.setDirection(this.direction);
 
-        Command command = new TurnLeftCommand(aMower);
+        Command command = new TurnLeftCommand();
+        aMower.addCommand(command);
         command.execute();
 
         assertEquals(this.expectedDirection, aMower.getDirection());
