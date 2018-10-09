@@ -33,6 +33,7 @@ public class LawnServiceTest {
         assertNotNull(aLawn.getMowers());
         assertEquals(1, aLawn.getMowers().size());
         assertEquals(aLawn, aMower.getLawn());
+        assertEquals(aMower, aLawn.getMowers().get(0));
     }
 
 }
