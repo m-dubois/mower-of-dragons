@@ -53,5 +53,15 @@ public class MowerServiceTest {
         Assert.assertEquals(TurnLeftCommand.class, aMower.getCommands().get(0).getClass());
     }
 
+    @Test
+    public void enqueueTurnRightCommand() {
+        MowerService mowerService = new MowerServiceImpl();
+        Mower aMower = mowerService.createMower(4, 7, Direction.EAST);
+        mowerService.enqueueTurnRightCommand(aMower);
+
+        Assert.assertEquals(1, aMower.getCommands().size());
+        Assert.assertEquals(TurnRightCommand.class, aMower.getCommands().get(0).getClass());
+    }
+
 
 }
