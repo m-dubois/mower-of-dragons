@@ -1,6 +1,7 @@
 package org.matt.kata.mod.domain.model;
 
 import java.util.ArrayList;
+import java.util.BitSet;
 import java.util.List;
 
 public class Lawn {
@@ -25,5 +26,9 @@ public class Lawn {
 
     void addMower(Mower mower) {
         this.mowers.add(mower);
+    }
+
+    public List<Mower> getMowers() {
+        return mowers;
     }
 }
