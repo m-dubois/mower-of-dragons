@@ -53,7 +53,7 @@ public class Mower {
 
     public List<Command> getCommands() {
         List<Command> commands = new ArrayList<>();
-        commands.add(new MoveForwardCommand(this, this.lawn));
+        commands.add(new MoveForwardCommand(this));
         return commands;
     }
 

@@ -28,8 +28,9 @@ public class MoveForwardCommandTest {
     @Test
     public void moveForwardCommand() {
         Mower aMower = new Mower(0, 0, Direction.NORTH);
+        aMower.setLawn(aLawn55);
 
-        Command command = new MoveForwardCommand(aMower, aLawn55);
+        Command command = new MoveForwardCommand(aMower);
         command.execute();
 
         Assert.assertEquals(new Position(0, 1), aMower.getPosition());
@@ -41,8 +42,9 @@ public class MoveForwardCommandTest {
     @Test
     public void aMowerInPositionZeroZeroAndTurnedNorthMovesFinishesZeroOneFacedNorth() {
         Mower aMower = new Mower(0, 0, Direction.NORTH);
+        aMower.setLawn(aLawn55);
 
-        Command command = new MoveForwardCommand(aMower, aLawn55);
+        Command command = new MoveForwardCommand(aMower);
         command.execute();
 
         assertEquals(new Position(0, 1), aMower.getPosition());
@@ -52,8 +54,9 @@ public class MoveForwardCommandTest {
     @Test
     public void aMowerInPositionZeroZeroAndTurnedEastMovesFinishesOneZeroFacedEast() {
         Mower aMower = new Mower(0, 0, Direction.EAST);
+        aMower.setLawn(aLawn55);
 
-        Command command = new MoveForwardCommand(aMower, aLawn55);
+        Command command = new MoveForwardCommand(aMower);
         command.execute();
 
         assertEquals(new Position(1, 0), aMower.getPosition());
@@ -63,8 +66,9 @@ public class MoveForwardCommandTest {
     @Test
     public void aMowerInPositionOneOneAndTurnedSouthMovesFinishesOneZeroFacedSouth() {
         Mower aMower = new Mower(1, 1, Direction.SOUTH);
+        aMower.setLawn(aLawn55);
 
-        Command command = new MoveForwardCommand(aMower, aLawn55);
+        Command command = new MoveForwardCommand(aMower);
         command.execute();
 
         assertEquals(new Position(1, 0), aMower.getPosition());
@@ -74,8 +78,9 @@ public class MoveForwardCommandTest {
     @Test
     public void aMowerInPositionOneOneAndTurnedWestMovesFinishesOneZeroFacedWest() {
         Mower aMower = new Mower(1, 1, Direction.WEST);
+        aMower.setLawn(aLawn55);
 
-        Command command = new MoveForwardCommand(aMower, aLawn55);
+        Command command = new MoveForwardCommand(aMower);
         command.execute();
 
         assertEquals(new Position(0, 1), aMower.getPosition());
@@ -87,8 +92,9 @@ public class MoveForwardCommandTest {
     @Test
     public void aMowerInPositionZeroZeroAndTurnedWestMovesFinishesZeroZeroFacedWest() {
         Mower aMower = new Mower(0, 0, Direction.WEST);
+        aMower.setLawn(aLawn55);
 
-        Command command = new MoveForwardCommand(aMower, aLawn55);
+        Command command = new MoveForwardCommand(aMower);
         command.execute();
 
         assertEquals(new Position(0, 0), aMower.getPosition());
@@ -98,8 +104,9 @@ public class MoveForwardCommandTest {
     @Test
     public void aMowerInPositionZeroZeroAndTurnedSouthMovesFinishesZeroZeroFacedSouth() {
         Mower aMower = new Mower(0, 0, Direction.SOUTH);
+        aMower.setLawn(aLawn55);
 
-        Command command = new MoveForwardCommand(aMower, aLawn55);
+        Command command = new MoveForwardCommand(aMower);
         command.execute();
 
         assertEquals(new Position(0, 0), aMower.getPosition());
@@ -109,8 +116,9 @@ public class MoveForwardCommandTest {
     @Test
     public void aMowerInPositionOneOneAndTurnedNorthOnAOneOneLawnMovesFinishesOneOneFacedSNorth() {
         Mower aMower = new Mower(1, 1, Direction.NORTH);
+        aMower.setLawn(aLawn11);
 
-        Command command = new MoveForwardCommand(aMower, aLawn11);
+        Command command = new MoveForwardCommand(aMower);
         command.execute();
 
         assertEquals(new Position(1, 1), aMower.getPosition());
@@ -120,8 +128,9 @@ public class MoveForwardCommandTest {
     @Test
     public void aMowerInPositionOneOneAndTurnedEastOnAOneOneLawnMovesFinishesOneOneFacedEast() {
         Mower aMower = new Mower(1, 1, Direction.EAST);
+        aMower.setLawn(aLawn11);
 
-        Command command = new MoveForwardCommand(aMower, aLawn11);
+        Command command = new MoveForwardCommand(aMower);
         command.execute();
 
         assertEquals(new Position(1, 1), aMower.getPosition());
@@ -131,8 +140,9 @@ public class MoveForwardCommandTest {
     @Test
     public void aMowerInPositionOneTwoAndTurnedNorthOnAThreeTwoLawnMovesFinishesOneTwoFacedNorth() {
         Mower aMower = new Mower(1, 2, Direction.NORTH);
+        aMower.setLawn(aLawn32);
 
-        Command command = new MoveForwardCommand(aMower, aLawn32);
+        Command command = new MoveForwardCommand(aMower);
         command.execute();
 
         assertEquals(new Position(1, 2), aMower.getPosition());
@@ -142,8 +152,9 @@ public class MoveForwardCommandTest {
     @Test
     public void aMowerInPositionTwoTwoAndTurnedEastOnATwoThreeLawnMovesFinishesTwoTwoFacedEast() {
         Mower aMower = new Mower(2, 2, Direction.EAST);
+        aMower.setLawn(aLawn23);
 
-        Command command = new MoveForwardCommand(aMower, aLawn23);
+        Command command = new MoveForwardCommand(aMower);
         command.execute();
 
         assertEquals(new Position(2, 2), aMower.getPosition());
@@ -153,7 +164,8 @@ public class MoveForwardCommandTest {
     @Test
     public void enqueueMoveForwardCommand() {
         Mower aMower = new Mower(0, 0, Direction.NORTH);
-        Command command = new MoveForwardCommand(aMower, aLawn55);
+        aMower.setLawn(aLawn55);
+        Command command = new MoveForwardCommand(aMower);
         Assert.assertEquals(1, aMower.getCommands().size());
         Assert.assertEquals(MoveForwardCommand.class, aMower.getCommands().get(0).getClass());
     }

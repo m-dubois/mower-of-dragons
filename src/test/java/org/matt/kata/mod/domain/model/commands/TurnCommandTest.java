@@ -42,7 +42,7 @@ public class TurnCommandTest {
     public void enqueueMoveForwardCommand() {
         Lawn aLawn = new Lawn(5, 5);
         Mower aMower = new Mower(0, 0, Direction.NORTH);
-        Command command = new MoveForwardCommand(aMower, aLawn);
+        Command command = new MoveForwardCommand(aMower);
         Assert.assertEquals(1, aMower.getCommands().size());
         Assert.assertEquals(MoveForwardCommand.class, aMower.getCommands().get(0).getClass());
     }

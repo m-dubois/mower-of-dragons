@@ -4,6 +4,7 @@ import org.matt.kata.mod.domain.model.Direction;
 import org.matt.kata.mod.domain.model.Mower;
 import org.matt.kata.mod.domain.model.commands.Command;
 import org.matt.kata.mod.domain.model.commands.MoveForwardCommand;
+import org.matt.kata.mod.domain.model.commands.TurnLeftCommand;
 import org.matt.kata.mod.domain.service.MowerService;
 
 public class MowerServiceImpl implements MowerService {
@@ -14,8 +15,7 @@ public class MowerServiceImpl implements MowerService {
 
     @Override
     public void enqueueMoveForwardCommand(Mower aMower) {
-        Command command = new MoveForwardCommand(aMower, aMower.getLawn());
-
+        Command command = new MoveForwardCommand(aMower);
     }
 
 }
