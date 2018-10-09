@@ -42,7 +42,6 @@ public class TurnCommandTest {
 
     @Test
     public void enqueueMoveForwardCommand() {
-        Lawn aLawn = new Lawn(5, 5);
         Mower aMower = new Mower(0, 0, Direction.NORTH);
         Command command = new MoveForwardCommand();
         aMower.addCommand(command);
