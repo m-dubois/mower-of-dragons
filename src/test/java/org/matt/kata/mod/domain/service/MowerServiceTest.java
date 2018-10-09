@@ -9,6 +9,7 @@ import org.matt.kata.mod.domain.model.Mower;
 import org.matt.kata.mod.domain.model.Position;
 import org.matt.kata.mod.domain.model.commands.MoveForwardCommand;
 import org.matt.kata.mod.domain.model.commands.TurnLeftCommand;
+import org.matt.kata.mod.domain.model.commands.TurnRightCommand;
 import org.matt.kata.mod.infrastructure.service.MowerServiceImpl;
 
 import static org.junit.Assert.assertEquals;

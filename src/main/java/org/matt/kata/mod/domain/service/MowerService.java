@@ -7,4 +7,5 @@ public interface MowerService {
     Mower createMower(int x, int y, Direction direction);
     void enqueueMoveForwardCommand(Mower aMower);
     void enqueueTurnLeftCommand(Mower aMower);
+    void enqueueTurnRightCommand(Mower aMower);
 }
