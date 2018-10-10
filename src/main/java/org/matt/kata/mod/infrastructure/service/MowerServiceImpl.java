@@ -32,4 +32,9 @@ public class MowerServiceImpl implements MowerService {
         aMower.addCommand(command);
     }
 
+    @Override
+    public void executeCommands(Mower aMower) {
+        aMower.getCommands().stream().forEach(c -> c.execute());
+    }
+
 }

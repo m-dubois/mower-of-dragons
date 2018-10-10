@@ -8,4 +8,5 @@ public interface MowerService {
     void enqueueMoveForwardCommand(Mower aMower);
     void enqueueTurnLeftCommand(Mower aMower);
     void enqueueTurnRightCommand(Mower aMower);
+    void executeCommands(Mower aMower);
 }
