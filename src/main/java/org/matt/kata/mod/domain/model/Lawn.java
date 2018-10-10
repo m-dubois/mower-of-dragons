@@ -30,4 +30,9 @@ public class Lawn {
     public List<Mower> getMowers() {
         return mowers;
     }
+
+    @Override
+    public String toString() {
+        return "{" + maxPositionX + ", " + maxPositionY + '}';
+    }
 }

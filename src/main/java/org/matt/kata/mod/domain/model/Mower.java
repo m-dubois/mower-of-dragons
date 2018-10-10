@@ -25,7 +25,11 @@ public class Mower {
     }
 
     public Mower(int x, int y, Direction direction) {
-        this.position = new Position(x, y);
+        this(new Position(x, y), direction);
+    }
+
+    public Mower(Position position, Direction direction) {
+        this.position = position;
         this.direction = direction;
         this.commands = new ArrayList<>();
     }
