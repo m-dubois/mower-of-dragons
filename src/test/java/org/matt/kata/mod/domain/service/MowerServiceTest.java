@@ -10,9 +10,11 @@ import org.matt.kata.mod.domain.model.Position;
 import org.matt.kata.mod.domain.model.commands.MoveForwardCommand;
 import org.matt.kata.mod.domain.model.commands.TurnLeftCommand;
 import org.matt.kata.mod.domain.model.commands.TurnRightCommand;
+import org.matt.kata.mod.infrastructure.service.LawnServiceImpl;
 import org.matt.kata.mod.infrastructure.service.MowerServiceImpl;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class MowerServiceTest {
 
@@ -102,6 +104,49 @@ public class MowerServiceTest {
         Assert.assertEquals(1, aMower.getCommands().size());
         Assert.assertEquals(TurnLeftCommand.class, aMower.getCommands().get(0).getClass());
         assertEquals(Direction.NORTH, aMower.getDirection());
+    }
+
+    @Test
+    public void executeTurnRightMoveForwardTurnLeftCommands() {
+        MowerService mowerService = new MowerServiceImpl();
+        Mower aMower = mowerService.createMower(4, 7, Direction.EAST);
+
+        mowerService.enqueueTurnRightCommand(aMower);
+        mowerService.enqueueMoveForwardCommand(aMower);
+        mowerService.enqueueTurnLeftCommand(aMower);
+        mowerService.executeCommands(aMower);
+
+        Assert.assertEquals(3, aMower.getCommands().size());
+        Assert.assertEquals(TurnRightCommand.class, aMower.getCommands().get(0).getClass());
+        Assert.assertEquals(MoveForwardCommand.class, aMower.getCommands().get(1).getClass());
+        Assert.assertEquals(TurnLeftCommand.class, aMower.getCommands().get(2).getClass());
+
+        assertEquals(Direction.EAST, aMower.getDirection());
+        assertEquals(new Position(4, 6), aMower.getPosition());
+    }
+
+    @Test
+    public void executeTurnRightMoveForwardTurnLeftCommandsWithLawnConstraint() {
+
+        LawnService lawnService = new LawnServiceImpl();
+        lawnService.createLawn(1, 1);
+
+        MowerService mowerService = new MowerServiceImpl();
+        Mower aMower = mowerService.createMower(0, 0, Direction.EAST);
+        aMower.setLawn(aLawn);
+
+        mowerService.enqueueTurnRightCommand(aMower);
+        mowerService.enqueueMoveForwardCommand(aMower);
+        mowerService.enqueueTurnLeftCommand(aMower);
+        mowerService.executeCommands(aMower);
+
+        Assert.assertEquals(3, aMower.getCommands().size());
+        Assert.assertEquals(TurnRightCommand.class, aMower.getCommands().get(0).getClass());
+        Assert.assertEquals(MoveForwardCommand.class, aMower.getCommands().get(1).getClass());
+        Assert.assertEquals(TurnLeftCommand.class, aMower.getCommands().get(2).getClass());
+
+        assertEquals(Direction.EAST, aMower.getDirection());
+        assertEquals(new Position(0, 0), aMower.getPosition());
     }
 
 
