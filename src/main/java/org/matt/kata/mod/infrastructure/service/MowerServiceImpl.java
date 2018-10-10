@@ -34,7 +34,7 @@ public class MowerServiceImpl implements MowerService {
 
     @Override
     public void executeCommands(Mower aMower) {
-        aMower.getCommands().stream().forEach(c -> c.execute());
+        aMower.getCommands().forEach(Command::execute);
     }
 
 }
