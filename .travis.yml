@@ -1,3 +1,7 @@
+env:
+  global:
+  - CC_TEST_REPORTER_ID=b18d601dd8c9704dd4aaa14bdc8f6ac399b4043ffb93c8389042baefd22b394a
+
 language: java
 
 jdk:
