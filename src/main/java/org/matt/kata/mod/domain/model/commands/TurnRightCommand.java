@@ -1,41 +1,27 @@
 package org.matt.kata.mod.domain.model.commands;
 
 import org.matt.kata.mod.domain.model.Direction;
-import org.matt.kata.mod.domain.model.Mower;
 
-public class TurnRightCommand implements Command {
+import java.util.AbstractMap;
+import java.util.Collections;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-    private Mower mower;
+public class TurnRightCommand extends TurnCommand implements Command {
 
-    public TurnRightCommand() {
-        super();
+    private final static Map<Direction, Direction> RULES;
+
+    static {
+        RULES = Collections.unmodifiableMap(Stream.of(
+                new AbstractMap.SimpleEntry<>(Direction.NORTH, Direction.EAST),
+                new AbstractMap.SimpleEntry<>(Direction.EAST, Direction.SOUTH),
+                new AbstractMap.SimpleEntry<>(Direction.SOUTH, Direction.WEST),
+                new AbstractMap.SimpleEntry<>(Direction.WEST, Direction.NORTH)
+        ).collect(Collectors.toMap(AbstractMap.SimpleEntry::getKey, AbstractMap.SimpleEntry::getValue)));
     }
 
-    public Mower getMower() {
-        return mower;
-    }
-
-    public void setMower(Mower mower) {
-        this.mower = mower;
-
-        if (!this.getMower().getCommands().contains(this)) {
-            this.getMower().addCommand(this);
-        }
-    }
-
-    @Override
-    public void execute() {
-        if (this.mower.getDirection().equals(Direction.NORTH)) {
-            this.mower.setDirection(Direction.EAST);
-        } else if (this.mower.getDirection().equals(Direction.EAST)) {
-            this.mower.setDirection(Direction.SOUTH);
-        } else if (this.mower.getDirection().equals(Direction.SOUTH)) {
-            this.mower.setDirection(Direction.WEST);
-        } else if (this.mower.getDirection().equals(Direction.WEST)) {
-            this.mower.setDirection(Direction.NORTH);
-        } else {
-            throw new RuntimeException("Unexpected direction: " + this.mower.getDirection());
-        }
-
+    protected Map<Direction, Direction> getRules() {
+        return RULES;
     }
 }
