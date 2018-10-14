@@ -3,6 +3,9 @@
 > Beware of the Mower of Dragons, Khaleesi of the Great Grass Sea, the Unburnt (though mowing the Great Grass See could lead to burning the engine ;-))
 
 [![Build Status](https://travis-ci.org/m-dubois/mower-of-dragons.svg?branch=master)](https://travis-ci.org/m-dubois/mower-of-dragons)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/3487a8832870fdd4e974/test_coverage)](https://codeclimate.com/github/m-dubois/mower-of-dragons/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/3487a8832870fdd4e974/maintainability)](https://codeclimate.com/github/m-dubois/mower-of-dragons/maintainability)
+
 
 ## Project creation
 
