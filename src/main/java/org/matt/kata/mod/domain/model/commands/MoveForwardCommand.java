@@ -27,22 +27,37 @@ public class MoveForwardCommand implements Command {
     @Override
     public void execute() {
         if (this.mower.getDirection().equals(Direction.NORTH)) {
-            if (this.mower.getPosition().getY() < this.mower.getLawn().getMaxPositionY()) {
-                this.mower.getPosition().incrementY();
-            }
+            moveNorth();
         } else if (this.mower.getDirection().equals(Direction.EAST)) {
-            if (this.mower.getPosition().getY() < this.mower.getLawn().getMaxPositionX()) {
-                this.mower.getPosition().incrementX();
-            }
+            moveEast();
         } else if (this.mower.getDirection().equals(Direction.SOUTH)) {
-            if (this.mower.getPosition().getY() > 0) {
-                this.mower.getPosition().decrementY();
-            }
+            moveSouth();
         } else if (this.mower.getDirection().equals(Direction.WEST)) {
-            if (this.mower.getPosition().getX() > 0) {
-                this.mower.getPosition().decrementX();
-            }
+            moveWest();
         }
+    }
 
+    private void moveWest() {
+        if (this.mower.getPosition().getX() > 0) {
+            this.mower.getPosition().decrementX();
+        }
+    }
+
+    private void moveSouth() {
+        if (this.mower.getPosition().getY() > 0) {
+            this.mower.getPosition().decrementY();
+        }
+    }
+
+    private void moveEast() {
+        if (this.mower.getPosition().getY() < this.mower.getLawn().getMaxPositionX()) {
+            this.mower.getPosition().incrementX();
+        }
+    }
+
+    private void moveNorth() {
+        if (this.mower.getPosition().getY() < this.mower.getLawn().getMaxPositionY()) {
+            this.mower.getPosition().incrementY();
+        }
     }
 }
