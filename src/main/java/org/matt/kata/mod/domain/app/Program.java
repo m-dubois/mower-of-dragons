@@ -4,9 +4,7 @@ import org.matt.kata.mod.domain.model.Lawn;
 import org.matt.kata.mod.domain.model.Mower;
 import org.matt.kata.mod.domain.model.commands.Command;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Program {
 
@@ -22,6 +20,7 @@ public class Program {
     }
 
     void addMower(Mower mower, List<Command> commandList) {
+        mower.addCommands(commandList);
         this.mowersWithCommands.put(mower, commandList);
     }
 
@@ -31,5 +30,15 @@ public class Program {
 
     List<Command> getMowerCommands(Mower mower) {
         return this.mowersWithCommands.get(mower);
+    }
+
+    public List<Mower> getMowers() {
+
+        Set<Mower> mowerSet = this.mowersWithCommands.keySet();
+
+        List<Mower> mowerList = new ArrayList<Mower>();
+        mowerList.addAll(mowerSet);
+
+        return mowerList;
     }
 }

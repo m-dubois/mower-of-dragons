@@ -25,16 +25,12 @@ public class ProgramLoaderTest {
 
         );
 
-        program.setMaxCoordinates(6, 9);
-
-        Mower mower = new Mower(0, 0, Direction.NORTH);
-        List<Command> commandList = new ArrayList<>();
-        commandList.add(new MoveForwardCommand());
-        program.addMower(mower, commandList);
-
         Assert.assertEquals(new Lawn(6, 9), program.getLawn());
         Assert.assertEquals(program.getMowersCount(), 1);
-        Assert.assertEquals(program.getMowerCommands(mower).size(), 1);
+        Assert.assertEquals(Mower.class, program.getMowers().get(0).getClass());
+        Assert.assertNotNull(program.getMowers().get(0).getCommands());
+        System.out.println(program.getMowers().get(0).getCommands());
+        Assert.assertEquals(1, program.getMowers().get(0).getCommands().size());
     }
 
 }

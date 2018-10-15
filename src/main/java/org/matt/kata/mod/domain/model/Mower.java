@@ -14,7 +14,7 @@ public class Mower {
     private Position position;
     private Direction direction;
     private Lawn lawn;
-    List<Command> commands;
+    private List<Command> commands;
 
     public Mower() {
         this(DEFAULT_X_POSITION, DEFAULT_Y_POSITION);
@@ -61,5 +61,11 @@ public class Mower {
     public void addCommand(Command command) {
         this.commands.add(command);
         command.setMower(this);
+    }
+
+    public void addCommands(List<Command> commandList) {
+        commandList.stream().forEach(command -> {
+            command.setMower(this);
+        });
     }
 }
