@@ -7,7 +7,7 @@ import org.matt.kata.mod.domain.model.Lawn;
 public class ProgramLineTest {
 
     @Test
-    public void firstProgramLineTest() {
+    public void firstProgramLineTest() throws ProgramException {
 
         String line = "5 5\n";
         Lawn lawn = LineParser.parseLawnCoordinates(line);
