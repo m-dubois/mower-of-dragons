@@ -1,28 +1,8 @@
 package org.matt.kata.mod.domain.model.commands;
 
 import org.matt.kata.mod.domain.model.Direction;
-import org.matt.kata.mod.domain.model.Mower;
 
-public class MoveForwardCommand implements Command {
-
-    private Mower mower;
-
-    public MoveForwardCommand() {
-        super();
-    }
-
-    public Mower getMower() {
-        return mower;
-    }
-
-    @Override
-    public void setMower(Mower mower) {
-        this.mower = mower;
-
-        if (!this.mower.getCommands().contains(this)) {
-            this.mower.addCommand(this);
-        }
-    }
+public class MoveForwardCommand extends AbstractCommand implements Command {
 
     @Override
     public void execute() {
