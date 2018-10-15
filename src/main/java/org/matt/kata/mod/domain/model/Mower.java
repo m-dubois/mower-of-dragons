@@ -64,8 +64,38 @@ public class Mower {
     }
 
     public void addCommands(List<Command> commandList) {
-        commandList.stream().forEach(command -> {
-            command.setMower(this);
-        });
+        commandList.forEach(command -> command.setMower(this));
+    }
+
+    @Override
+    public String toString() {
+        return "Mower{" +
+                "position=" + position +
+                ", direction=" + direction +
+                ", lawn=" + lawn +
+                ", commands=" + commands +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Mower mower = (Mower) o;
+
+        if (position != null ? !position.equals(mower.position) : mower.position != null) return false;
+        if (direction != mower.direction) return false;
+        if (lawn != null ? !lawn.equals(mower.lawn) : mower.lawn != null) return false;
+        return commands != null ? commands.equals(mower.commands) : mower.commands == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = position != null ? position.hashCode() : 0;
+        result = 31 * result + (direction != null ? direction.hashCode() : 0);
+        result = 31 * result + (lawn != null ? lawn.hashCode() : 0);
+        result = 31 * result + (commands != null ? commands.hashCode() : 0);
+        return result;
     }
 }

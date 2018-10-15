@@ -32,7 +32,7 @@ class LineParser {
         }
     }
 
-    public static Mower parseMowerPositionAndDirection(String positionAndDirectionLine) throws ProgramException {
+    static Mower parseMowerPositionAndDirection(String positionAndDirectionLine) throws ProgramException {
 
         String line = Utils.removeEndingNewLineIfNeeded(positionAndDirectionLine);
 
@@ -43,7 +43,7 @@ class LineParser {
             int x = Integer.parseInt(posAndDir[0]);
             int y = Integer.parseInt(posAndDir[1]);
             String dir = posAndDir[2];
-            Direction direction = DirectionParser.parse(dir);
+            Direction direction = DirectionParser.parseDirectionString(dir);
 
             MowerService mowerService = new MowerServiceImpl();
             return mowerService.createMower(x, y, direction);
