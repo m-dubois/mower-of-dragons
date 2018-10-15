@@ -3,29 +3,33 @@ package org.matt.kata.mod.domain.app;
 import org.matt.kata.mod.domain.model.Lawn;
 import org.matt.kata.mod.domain.model.Mower;
 import org.matt.kata.mod.domain.model.commands.Command;
-import org.matt.kata.mod.domain.model.commands.MoveForwardCommand;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Program {
-    void setMaxCoordinates(int i, int i1) {
-    }
 
-    void addMower(Mower mower, List<Command> commandList) {
+    private Lawn lawn;
+    private Map<Mower, List<Command>> mowersWithCommands = new HashMap<>();
+
+    void setMaxCoordinates(int x, int y) {
+        this.lawn = new Lawn(x, y);
     }
 
     public Lawn getLawn() {
-        return new Lawn(6, 9);
+        return this.lawn;
+    }
+
+    void addMower(Mower mower, List<Command> commandList) {
+        this.mowersWithCommands.put(mower, commandList);
     }
 
     int getMowersCount() {
-        return 1;
+        return this.mowersWithCommands.keySet().size();
     }
 
-    List<Command> getMowerCommands(int i) {
-        ArrayList<Command> commandList= new ArrayList<>();
-        commandList.add(new MoveForwardCommand());
-        return commandList;
+    List<Command> getMowerCommands(Mower mower) {
+        return this.mowersWithCommands.get(mower);
     }
 }

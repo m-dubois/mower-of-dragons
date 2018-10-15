@@ -26,6 +26,7 @@ public class ProgramTest {
 
         Assert.assertEquals(new Lawn(6, 9), program.getLawn());
         Assert.assertEquals(program.getMowersCount(), 1);
-        Assert.assertEquals(program.getMowerCommands(0).size(), 1);
+        Assert.assertEquals(program.getMowerCommands(mower).size(), 1);
     }
+
 }
