@@ -2,8 +2,6 @@ package org.matt.kata.mod.domain.app;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.matt.kata.mod.domain.model.Direction;
 import org.matt.kata.mod.domain.model.Lawn;
 import org.matt.kata.mod.domain.model.Mower;
@@ -17,6 +15,48 @@ public class ProgramLineTest {
         Assert.assertEquals(new Lawn(5, 5), lawn);
     }
 
+    @Test (expected = ProgramException.class)
+    public void parseLawnCoordinatesFail1Test() throws ProgramException {
+        String line = "T 5\n";
+        LineParser.parseLawnCoordinates(line);
+    }
+
+    @Test (expected = ProgramException.class)
+    public void parseLawnCoordinatesFail2Test() throws ProgramException {
+        String line = "24 Y\n";
+        LineParser.parseLawnCoordinates(line);
+    }
+
+    @Test (expected = ProgramException.class)
+    public void parseLawnCoordinatesFail3Test() throws ProgramException {
+        String line = "U Y\n";
+        LineParser.parseLawnCoordinates(line);
+    }
+
+    @Test (expected = ProgramException.class)
+    public void parseLawnCoordinatesFailMessage1Test() throws ProgramException {
+        String line = "U Y\n";
+
+        try {
+            LineParser.parseLawnCoordinates(line);
+        } catch (ProgramException e) {
+            Assert.assertEquals("X coordinate is not a positive integer: U", e.getMessage());
+            throw e;
+        }
+    }
+
+    @Test (expected = ProgramException.class)
+    public void parseLawnCoordinatesFailMessage2Test() throws ProgramException {
+        String line = "1 Y\n";
+
+        try {
+            LineParser.parseLawnCoordinates(line);
+        } catch (ProgramException e) {
+            Assert.assertEquals("Y coordinate is not a positive integer: Y", e.getMessage());
+            throw e;
+        }
+    }
+
     @Test
     public void parseMowerPositionAndDirectionTest() throws ProgramException {
         String line = "1 2 N\n";
@@ -24,5 +64,44 @@ public class ProgramLineTest {
         Assert.assertEquals(new Mower(1, 2, Direction.NORTH), mower);
     }
 
+    @Test (expected = ProgramException.class)
+    public void parseMowerPositionAndDirectionFail1Test() throws ProgramException {
+        String line = "A 2 N\n";
+        LineParser.parseMowerPositionAndDirection(line);
+    }
+
+    @Test (expected = ProgramException.class)
+    public void parseMowerPositionAndDirectionFail2Test() throws ProgramException {
+        String line = "1 B N\n";
+        LineParser.parseMowerPositionAndDirection(line);
+    }
+
+    @Test (expected = ProgramException.class)
+    public void parseMowerPositionAndDirectionFail3Test() throws ProgramException {
+        String line = "A B N\n";
+        LineParser.parseMowerPositionAndDirection(line);
+    }
+
+    @Test (expected = ProgramException.class)
+    public void parseMowerPositionAndDirectionFailWithMessage1Test() throws ProgramException {
+        String line = "A B N\n";
+        try {
+            LineParser.parseMowerPositionAndDirection(line);
+        } catch (ProgramException e) {
+            Assert.assertEquals("X coordinate is not a positive integer: A", e.getMessage());
+            throw e;
+        }
+    }
+
+    @Test (expected = ProgramException.class)
+    public void parseMowerPositionAndDirectionFailWithMessage2Test() throws ProgramException {
+        String line = "3 B N\n";
+        try {
+            LineParser.parseMowerPositionAndDirection(line);
+        } catch (ProgramException e) {
+            Assert.assertEquals("Y coordinate is not a positive integer: B", e.getMessage());
+            throw e;
+        }
+    }
 
 }
