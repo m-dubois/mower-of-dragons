@@ -29,7 +29,6 @@ public class ProgramLoaderTest {
         Assert.assertEquals(program.getMowersCount(), 1);
         Assert.assertEquals(Mower.class, program.getMowers().get(0).getClass());
         Assert.assertNotNull(program.getMowers().get(0).getCommands());
-        System.out.println(program.getMowers().get(0).getCommands());
         Assert.assertEquals(1, program.getMowers().get(0).getCommands().size());
     }
 
