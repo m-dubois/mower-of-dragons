@@ -13,6 +13,11 @@ class LineParser {
     private static final String COORDINATES_SEPARATOR = " ";
     private static final String POSITION_AND_DIRECTION_SEPARATOR = " ";
 
+    private LineParser() {
+        // can't instantiate LineParser
+        throw new UnsupportedOperationException();
+    }
+
     static Lawn parseLawnCoordinates(String coordinatesline) throws ProgramException {
 
         String line = Utils.removeEndingNewLineIfNeeded(coordinatesline);
@@ -21,14 +26,14 @@ class LineParser {
 
         if (coords.length == 2) {
 
-            int x = Integer.parseInt(coords[0]);
-            int y = Integer.parseInt(coords[1]);
+            int x = parseSingleCoordinate("X", coords[0]);
+            int y = parseSingleCoordinate("Y", coords[1]);
 
             LawnService lawnService = new LawnServiceImpl();
             return lawnService.createLawn(x, y);
 
         } else {
-            throw new ProgramException("Coordinates are made of 2 integers; found ", coords.length);
+            throw new ProgramException("Coordinates are made of 2 integers; found %d", coords.length);
         }
     }
 
@@ -40,8 +45,8 @@ class LineParser {
 
         if (posAndDir.length == 3) {
 
-            int x = Integer.parseInt(posAndDir[0]);
-            int y = Integer.parseInt(posAndDir[1]);
+            int x = parseSingleCoordinate("X", posAndDir[0]);
+            int y = parseSingleCoordinate("Y", posAndDir[1]);
             String dir = posAndDir[2];
             Direction direction = DirectionParser.parseDirectionString(dir);
 
@@ -49,8 +54,18 @@ class LineParser {
             return mowerService.createMower(x, y, direction);
 
         } else {
-            throw new ProgramException("Coordinates are made of 2 integers; found ", posAndDir.length);
+            throw new ProgramException("Coordinates are made of 2 integers; found %d", posAndDir.length);
         }
 
+    }
+
+    private static int parseSingleCoordinate(String coordinateName, String coordinateString) throws ProgramException {
+        int coord;
+        try {
+            coord = Integer.parseInt(coordinateString);
+        } catch (NumberFormatException exception) {
+            throw new ProgramException("%s coordinate is not a positive integer: %s", coordinateName, coordinateString);
+        }
+        return coord;
     }
 }
