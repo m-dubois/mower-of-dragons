@@ -3,10 +3,17 @@ package org.matt.kata.mod.domain.app;
 import org.matt.kata.mod.domain.model.Direction;
 import org.matt.kata.mod.domain.model.Lawn;
 import org.matt.kata.mod.domain.model.Mower;
+import org.matt.kata.mod.domain.model.commands.Command;
+import org.matt.kata.mod.domain.model.commands.MoveForwardCommand;
+import org.matt.kata.mod.domain.model.commands.TurnLeftCommand;
+import org.matt.kata.mod.domain.model.commands.TurnRightCommand;
 import org.matt.kata.mod.domain.service.LawnService;
 import org.matt.kata.mod.domain.service.MowerService;
 import org.matt.kata.mod.infrastructure.service.LawnServiceImpl;
 import org.matt.kata.mod.infrastructure.service.MowerServiceImpl;
+
+import java.util.ArrayList;
+import java.util.List;
 
 class LineParser {
 
@@ -67,5 +74,35 @@ class LineParser {
             throw new ProgramException("%s coordinate is not a positive integer: %s", coordinateName, coordinateString);
         }
         return coord;
+    }
+
+
+    public static List<Command> parseMowerCommands(String commandsLine) throws ProgramException {
+        String line = Utils.removeEndingNewLineIfNeeded(commandsLine);
+
+        List<Command> commands = new ArrayList<>();
+
+        try {
+            line.chars().forEach((c -> {
+                Command command;
+                command = getCommand(c);
+                commands.add(command);
+            }));
+        } catch (RuntimeException e) {
+            throw new ProgramException(e.getMessage());
+        }
+        return commands;
+    }
+
+    private static Command getCommand(int c) {
+        if (c == 'A') {
+            return new MoveForwardCommand();
+        } else if (c == 'G') {
+            return new TurnLeftCommand();
+        } else if (c == 'D') {
+            return new TurnRightCommand();
+        } else {
+            throw new RuntimeException(String.format("Unknown command: %c", c));
+        }
     }
 }
