@@ -5,6 +5,11 @@ import org.junit.Test;
 import org.matt.kata.mod.domain.model.Direction;
 import org.matt.kata.mod.domain.model.Lawn;
 import org.matt.kata.mod.domain.model.Mower;
+import org.matt.kata.mod.domain.model.commands.Command;
+import org.matt.kata.mod.domain.model.commands.MoveForwardCommand;
+import org.matt.kata.mod.domain.model.commands.TurnLeftCommand;
+
+import java.util.List;
 
 public class ProgramLineTest {
 
@@ -57,6 +62,8 @@ public class ProgramLineTest {
         }
     }
 
+    // ============================================================================================
+
     @Test
     public void parseMowerPositionAndDirectionTest() throws ProgramException {
         String line = "1 2 N\n";
@@ -102,6 +109,19 @@ public class ProgramLineTest {
             Assert.assertEquals("Y coordinate is not a positive integer: B", e.getMessage());
             throw e;
         }
+    }
+
+    // ============================================================================================
+
+    @Test
+    public void parseMowerCommandsTest() throws ProgramException {
+        String line = "GAG\n";
+        List<Command> commands = LineParser.parseMowerCommands(line);
+        Assert.assertNotNull(commands);
+        Assert.assertEquals(3, commands.size());
+        Assert.assertEquals(TurnLeftCommand.class, commands.get(0).getClass());
+        Assert.assertEquals(MoveForwardCommand.class, commands.get(1).getClass());
+        Assert.assertEquals(TurnLeftCommand.class, commands.get(2).getClass());
     }
 
 }
