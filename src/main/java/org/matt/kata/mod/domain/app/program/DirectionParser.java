@@ -1,4 +1,4 @@
-package org.matt.kata.mod.domain.app;
+package org.matt.kata.mod.domain.app.program;
 
 import org.matt.kata.mod.domain.model.Direction;
 
@@ -10,7 +10,11 @@ import java.util.stream.Stream;
 
 class DirectionParser {
 
-    private final static Map<String, Direction> DIRECTION_MAP;
+    private DirectionParser() {
+        throw new UnsupportedOperationException();
+    }
+
+    private static final Map<String, Direction> DIRECTION_MAP;
 
     static {
         DIRECTION_MAP = Collections.unmodifiableMap(Stream.of(

@@ -1,4 +1,4 @@
-package org.matt.kata.mod.domain.app;
+package org.matt.kata.mod.domain.app.program;
 
 import org.matt.kata.mod.domain.model.Lawn;
 import org.matt.kata.mod.domain.model.Mower;
@@ -36,7 +36,7 @@ public class Program {
 
         Set<Mower> mowerSet = this.mowersWithCommands.keySet();
 
-        List<Mower> mowerList = new ArrayList<Mower>();
+        List<Mower> mowerList = new ArrayList<>();
         mowerList.addAll(mowerSet);
 
         return mowerList;

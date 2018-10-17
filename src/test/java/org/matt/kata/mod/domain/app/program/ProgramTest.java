@@ -1,4 +1,4 @@
-package org.matt.kata.mod.domain.app;
+package org.matt.kata.mod.domain.app.program;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,8 +25,8 @@ public class ProgramTest {
         program.addMower(mower, commandList);
 
         Assert.assertEquals(new Lawn(6, 9), program.getLawn());
-        Assert.assertEquals(program.getMowersCount(), 1);
-        Assert.assertEquals(program.getMowerCommands(mower).size(), 1);
+        Assert.assertEquals(1, program.getMowersCount());
+        Assert.assertEquals(1, program.getMowerCommands(mower).size());
     }
 
 }

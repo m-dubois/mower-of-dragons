@@ -1,4 +1,4 @@
-package org.matt.kata.mod.domain.app;
+package org.matt.kata.mod.domain.app.program;
 
 import org.matt.kata.mod.domain.model.Direction;
 import org.matt.kata.mod.domain.model.Mower;
@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * The ProgramLoader acts as a factory for a Program.
  */
-public class ProgramLoader {
+class ProgramLoader {
 
     /**
      * Loads a program from a String
@@ -19,7 +19,7 @@ public class ProgramLoader {
      * @param programString a string defining the program
      * @return Program
      */
-    public static Program loadFrom(String programString) {
+    static Program loadFrom(String programString) {
 
         Program program = new Program();
         program.setMaxCoordinates(6, 9);
