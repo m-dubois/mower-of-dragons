@@ -84,9 +84,12 @@ public class Mower {
 
         Mower mower = (Mower) o;
 
-        if (position != null ? !position.equals(mower.position) : mower.position != null) return false;
-        if (direction != mower.direction) return false;
-        if (lawn != null ? !lawn.equals(mower.lawn) : mower.lawn != null) return false;
+        if ((position != null ? !position.equals(mower.position) : mower.position != null)
+                || (direction != mower.direction)
+                || (lawn != null ? !lawn.equals(mower.lawn) : mower.lawn != null)
+        ) {
+            return false;
+        }
         return commands != null ? commands.equals(mower.commands) : mower.commands == null;
     }
 
