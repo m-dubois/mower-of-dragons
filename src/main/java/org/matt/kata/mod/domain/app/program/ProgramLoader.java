@@ -1,11 +1,9 @@
 package org.matt.kata.mod.domain.app.program;
 
-import org.matt.kata.mod.domain.model.Direction;
+import org.matt.kata.mod.domain.model.Lawn;
 import org.matt.kata.mod.domain.model.Mower;
 import org.matt.kata.mod.domain.model.commands.Command;
-import org.matt.kata.mod.domain.model.commands.MoveForwardCommand;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,22 +11,42 @@ import java.util.List;
  */
 class ProgramLoader {
 
+    private ProgramLoader() {
+        throw new UnsupportedOperationException();
+    }
+
     /**
      * Loads a program from a String
      *
      * @param programString a string defining the program
      * @return Program
      */
-    static Program loadFrom(String programString) {
+    static Program loadFrom(String programString) throws ProgramException {
+
+        String[] lines = programString.split(System.getProperty("line.separator"));
 
         Program program = new Program();
-        program.setMaxCoordinates(6, 9);
+        Mower mower = null;
+        List<Command> commands;
+        int order = 0;
 
-        Mower mower = new Mower(0, 0, Direction.NORTH);
-        List<Command> commandList = new ArrayList<>();
-        commandList.add(new MoveForwardCommand());
-        program.addMower(mower, commandList);
+        for (int i=0; i<lines.length; i++) {
+            LineProcessor processor = LineProcessorDispatcher.getProcessor(i);
+            processor.process(lines[i]);
 
+            if (processor.getLawn() != null) {
+                Lawn lawn = processor.getLawn();
+                program.setLawn(lawn);
+            }
+            if (processor.getMower() != null) {
+                mower = processor.getMower();
+                mower.setOrder(order++);
+            }
+            if (processor.getCommands() != null) {
+                commands = processor.getCommands();
+                program.addMower(mower, commands);
+            }
+        }
         return program;
     }
 }

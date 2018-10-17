@@ -17,7 +17,8 @@ public class ProgramTest {
     public void aProgramDefinesLawnMowersAndCommands() {
 
         Program program = new Program();
-        program.setMaxCoordinates(6, 9);
+        Lawn lawn = new Lawn(6, 9);
+        program.setLawn(lawn);
 
         Mower mower = new Mower(0, 0, Direction.NORTH);
         List<Command> commandList = new ArrayList<>();

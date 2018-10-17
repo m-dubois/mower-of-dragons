@@ -5,12 +5,13 @@ import org.matt.kata.mod.domain.model.commands.Command;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Mower {
+public class Mower implements Comparable {
 
     private static final int DEFAULT_X_POSITION = 0;
     private static final int DEFAULT_Y_POSITION = 0;
     private static final Direction DEFAULT_DIRECTION = Direction.NORTH;
 
+    private int order;
     private Position position;
     private Direction direction;
     private Lawn lawn;
@@ -67,6 +68,10 @@ public class Mower {
         commandList.forEach(command -> command.setMower(this));
     }
 
+    public void setOrder(int order) {
+        this.order = order;
+    }
+
     @Override
     public String toString() {
         return "Mower{" +
@@ -100,5 +105,12 @@ public class Mower {
         result = 31 * result + (lawn != null ? lawn.hashCode() : 0);
         result = 31 * result + (commands != null ? commands.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if (this == o) return 0;
+        if (o == null || getClass() != o.getClass()) return 1;
+        return Integer.compare(order, ((Mower) o).order);
     }
 }

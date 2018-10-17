@@ -9,14 +9,14 @@ import java.util.*;
 public class Program {
 
     private Lawn lawn;
-    private Map<Mower, List<Command>> mowersWithCommands = new HashMap<>();
-
-    void setMaxCoordinates(int x, int y) {
-        this.lawn = new Lawn(x, y);
-    }
+    private SortedMap<Mower, List<Command>> mowersWithCommands = new TreeMap<>();
 
     public Lawn getLawn() {
         return this.lawn;
+    }
+
+    public void setLawn(Lawn lawn) {
+        this.lawn = lawn;
     }
 
     void addMower(Mower mower, List<Command> commandList) {
@@ -32,13 +32,8 @@ public class Program {
         return this.mowersWithCommands.get(mower);
     }
 
-    public List<Mower> getMowers() {
-
+    List<Mower> getMowers() {
         Set<Mower> mowerSet = this.mowersWithCommands.keySet();
-
-        List<Mower> mowerList = new ArrayList<>();
-        mowerList.addAll(mowerSet);
-
-        return mowerList;
+        return new ArrayList<>(mowerSet);
     }
 }

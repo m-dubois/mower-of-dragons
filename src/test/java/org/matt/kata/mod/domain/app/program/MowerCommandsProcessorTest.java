@@ -15,7 +15,6 @@ public class MowerCommandsProcessorTest {
     public void parseMowerCommandsTest1() throws ProgramException {
         String line = "GAG\n";
 
-
         MowerCommandsLineProcessor processor = new MowerCommandsLineProcessor();
         processor.process(line);
         List<Command> commands = processor.getCommands();
