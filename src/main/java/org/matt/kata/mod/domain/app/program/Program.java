@@ -32,7 +32,7 @@ public class Program {
         return this.mowersWithCommands.get(mower);
     }
 
-    List<Mower> getMowers() {
+    public List<Mower> getMowers() {
         Set<Mower> mowerSet = this.mowersWithCommands.keySet();
         return new ArrayList<>(mowerSet);
     }

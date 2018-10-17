@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * The ProgramLoader acts as a factory for a Program.
  */
-class ProgramLoader {
+public class ProgramLoader {
 
     private ProgramLoader() {
         throw new UnsupportedOperationException();
@@ -21,7 +21,7 @@ class ProgramLoader {
      * @param programString a string defining the program
      * @return Program
      */
-    static Program loadFrom(String programString) throws ProgramException {
+    public static Program loadFrom(String programString) throws ProgramException {
 
         String[] lines = programString.split(System.getProperty("line.separator"));
 
@@ -40,6 +40,7 @@ class ProgramLoader {
             }
             if (processor.getMower() != null) {
                 mower = processor.getMower();
+                mower.setLawn(program.getLawn());
                 mower.setOrder(order++);
             }
             if (processor.getCommands() != null) {
