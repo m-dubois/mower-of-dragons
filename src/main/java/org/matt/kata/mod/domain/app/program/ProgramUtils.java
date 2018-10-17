@@ -11,8 +11,13 @@ class ProgramUtils {
         try {
             coord = Integer.parseInt(coordinateString);
         } catch (NumberFormatException exception) {
+            throw new ProgramException("%s coordinate is not an integer: %s", coordinateName, coordinateString);
+        }
+
+        if (coord < 0) {
             throw new ProgramException("%s coordinate is not a positive integer: %s", coordinateName, coordinateString);
         }
+
         return coord;
     }
 }

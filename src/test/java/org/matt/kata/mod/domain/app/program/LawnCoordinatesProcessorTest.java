@@ -47,7 +47,7 @@ public class LawnCoordinatesProcessorTest {
             LawnCoordinatesLineProcessor processor = new LawnCoordinatesLineProcessor();
             processor.process(line);
         } catch (ProgramException e) {
-            Assert.assertEquals("X coordinate is not a positive integer: U", e.getMessage());
+            Assert.assertEquals("X coordinate is not an integer: U", e.getMessage());
             throw e;
         }
     }
@@ -60,7 +60,7 @@ public class LawnCoordinatesProcessorTest {
             LawnCoordinatesLineProcessor processor = new LawnCoordinatesLineProcessor();
             processor.process(line);
         } catch (ProgramException e) {
-            Assert.assertEquals("Y coordinate is not a positive integer: Y", e.getMessage());
+            Assert.assertEquals("Y coordinate is not an integer: Y", e.getMessage());
             throw e;
         }
     }

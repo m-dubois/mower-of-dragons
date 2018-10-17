@@ -45,7 +45,7 @@ public class MowerPositionAndDirectionProcessorTest {
             MowerPositionAndDirectionLineProcessor processor = new MowerPositionAndDirectionLineProcessor();
             processor.process(line);
         } catch (ProgramException e) {
-            Assert.assertEquals("X coordinate is not a positive integer: A", e.getMessage());
+            Assert.assertEquals("X coordinate is not an integer: A", e.getMessage());
             throw e;
         }
     }
@@ -57,7 +57,7 @@ public class MowerPositionAndDirectionProcessorTest {
             MowerPositionAndDirectionLineProcessor processor = new MowerPositionAndDirectionLineProcessor();
             processor.process(line);
         } catch (ProgramException e) {
-            Assert.assertEquals("Y coordinate is not a positive integer: B", e.getMessage());
+            Assert.assertEquals("Y coordinate is not an integer: B", e.getMessage());
             throw e;
         }
     }
