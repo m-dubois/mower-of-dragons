@@ -10,6 +10,8 @@ public class Program {
 
     private Lawn lawn;
     private SortedMap<Mower, List<Command>> mowersWithCommands = new TreeMap<>();
+    private Mower lastAddedMower;
+    private int order = 0;
 
     public Lawn getLawn() {
         return this.lawn;
@@ -19,9 +21,14 @@ public class Program {
         this.lawn = lawn;
     }
 
-    void addMower(Mower mower, List<Command> commandList) {
-        mower.addCommands(commandList);
-        this.mowersWithCommands.put(mower, commandList);
+    void addMower(Mower mower) {
+        mower.setOrder(order++);
+        this.lastAddedMower = mower;
+    }
+
+    void addMowerCommands(List<Command> commandList) {
+        this.lastAddedMower.addCommands(commandList);
+        this.mowersWithCommands.put(this.lastAddedMower, commandList);
     }
 
     public int getMowersCount() {

@@ -23,7 +23,8 @@ public class ProgramTest {
         Mower mower = new Mower(0, 0, Direction.NORTH);
         List<Command> commandList = new ArrayList<>();
         commandList.add(new MoveForwardCommand());
-        program.addMower(mower, commandList);
+        program.addMower(mower);
+        program.addMowerCommands(commandList);
 
         Assert.assertEquals(new Lawn(6, 9), program.getLawn());
         Assert.assertEquals(1, program.getMowersCount());

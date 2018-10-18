@@ -4,7 +4,9 @@ import org.junit.Test;
 import org.matt.kata.mod.application.App;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.PrintStream;
+import java.net.URL;
 
 import static org.junit.Assert.assertEquals;
 
@@ -33,7 +35,9 @@ public class AppTest {
     @Test
     public void mainWithFileTest() {
 
-        String programFilename = "sample.txt";
+        ClassLoader classLoader = getClass().getClassLoader();
+        URL resource = classLoader.getResource("sample.txt");
+        String programFilename = new File(resource.getPath()).getAbsolutePath();
 
         String[] args = {"-f", programFilename };
 
