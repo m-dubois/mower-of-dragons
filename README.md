@@ -15,6 +15,28 @@ The project was created using the following maven archetype.
 mvn archetype:generate -DarchetypeGroupId=org.spilth -DarchetypeArtifactId=java8-junit4-quickstart
 ```
 
+## Building project
+
+```
+mvn clean package
+```
+
+## Running tests
+
+```
+mvn test
+```
+
+##Running the application
+
+This application is a CLI. To run it:
+
+```
+java -cp target/mower-of-dragons-1.0.0-SNAPSHOT.jar org.matt.kata.mod.application.App -f src/test/resources/sample.txt
+```
+
+User eXperience isn't that great, I know... I might work on that in a future version ;) 
+
 ## Enoncé 
 
 La société MowItNow a décidé de développer une tondeuse à gazon automatique, destinée aux surfaces rectangulaires.
