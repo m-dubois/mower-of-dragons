@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class AppTest {
 
     @Test
-    public void mainTest() {
+    public void mainWithStringTest() {
 
         String program = "5 5\n" +
                 "1 2 N\n" +
@@ -28,6 +28,21 @@ public class AppTest {
 
         assertEquals("1 3 N\n" +
                 "5 1 E\n", outContent.toString());
+    }
 
+    @Test
+    public void mainWithFileTest() {
+
+        String programFilename = "sample.txt";
+
+        String[] args = {"-f", programFilename };
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
+        App.main(args);
+
+        assertEquals("1 3 N\n" +
+                "5 1 E\n", outContent.toString());
     }
 }
