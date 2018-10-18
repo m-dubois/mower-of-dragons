@@ -1,4 +1,4 @@
-package org.matt.kata.mod.application.program;
+package org.matt.kata.mod.application.impl;
 
 import org.matt.kata.mod.application.Utils;
 import org.matt.kata.mod.domain.model.Direction;
@@ -12,6 +12,7 @@ public class MowerPositionAndDirectionLineProcessor implements LineProcessor {
 
     private Mower mower;
 
+    @Override
     public Mower getMower() {
         return mower;
     }

@@ -1,8 +1,8 @@
 package org.matt.kata.mod.application;
 
-import org.matt.kata.mod.application.program.Program;
-import org.matt.kata.mod.application.program.ProgramException;
-import org.matt.kata.mod.application.program.ProgramLoader;
+import org.matt.kata.mod.application.impl.Program;
+import org.matt.kata.mod.application.impl.ProgramException;
+import org.matt.kata.mod.application.impl.ProgramServiceImpl;
 import org.matt.kata.mod.domain.model.commands.Command;
 
 import static java.text.MessageFormat.format;
@@ -18,7 +18,8 @@ public class App {
         if (args[0].equals("-s")) {
 
             try {
-                Program program = ProgramLoader.loadFrom(args[1]);
+                ProgramService programService = new ProgramServiceImpl();
+                Program program = programService.loadFrom(args[1]);
                 program.getMowers().forEach(mower -> {
                     mower.getCommands().forEach(Command::execute);
                     System.out.println(mower.getPosition().getX() + " "

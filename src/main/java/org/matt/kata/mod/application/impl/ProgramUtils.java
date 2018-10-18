@@ -1,4 +1,4 @@
-package org.matt.kata.mod.application.program;
+package org.matt.kata.mod.application.impl;
 
 class ProgramUtils {
 

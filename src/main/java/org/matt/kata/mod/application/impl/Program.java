@@ -1,4 +1,4 @@
-package org.matt.kata.mod.application.program;
+package org.matt.kata.mod.application.impl;
 
 import org.matt.kata.mod.domain.model.Lawn;
 import org.matt.kata.mod.domain.model.Mower;
@@ -24,7 +24,7 @@ public class Program {
         this.mowersWithCommands.put(mower, commandList);
     }
 
-    int getMowersCount() {
+    public int getMowersCount() {
         return this.mowersWithCommands.keySet().size();
     }
 

@@ -1,4 +1,4 @@
-package org.matt.kata.mod.application.program;
+package org.matt.kata.mod.application.impl;
 
 import org.matt.kata.mod.application.Utils;
 import org.matt.kata.mod.domain.model.commands.Command;
@@ -13,6 +13,7 @@ public class MowerCommandsLineProcessor implements LineProcessor {
 
     private List<Command> commands;
 
+    @Override
     public List<Command> getCommands() {
         return commands;
     }

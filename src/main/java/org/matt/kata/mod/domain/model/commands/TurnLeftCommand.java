@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class TurnLeftCommand extends TurnCommand implements Command {
 
-    private final static Map<Direction, Direction> RULES;
+    private static final Map<Direction, Direction> RULES;
 
     static {
         RULES = Collections.unmodifiableMap(Stream.of(

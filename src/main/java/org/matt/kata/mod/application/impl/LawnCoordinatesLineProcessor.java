@@ -1,4 +1,4 @@
-package org.matt.kata.mod.application.program;
+package org.matt.kata.mod.application.impl;
 
 import org.matt.kata.mod.application.Utils;
 import org.matt.kata.mod.domain.model.Lawn;
@@ -11,6 +11,7 @@ public class LawnCoordinatesLineProcessor implements LineProcessor {
 
     private Lawn lawn;
 
+    @Override
     public Lawn getLawn() {
         return lawn;
     }

@@ -1,9 +1,7 @@
-package org.matt.kata.mod.application.program;
+package org.matt.kata.mod.application.impl;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.matt.kata.mod.application.program.ProgramException;
-import org.matt.kata.mod.application.program.ProgramUtils;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
