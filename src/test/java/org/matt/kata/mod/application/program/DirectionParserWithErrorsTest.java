@@ -1,6 +1,8 @@
-package org.matt.kata.mod.domain.app.program;
+package org.matt.kata.mod.application.program;
 
 import org.junit.Test;
+import org.matt.kata.mod.application.program.DirectionParser;
+import org.matt.kata.mod.application.program.ProgramException;
 
 public class DirectionParserWithErrorsTest {
 

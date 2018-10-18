@@ -1,8 +1,8 @@
-package org.matt.kata.mod.domain.app;
+package org.matt.kata.mod.application;
 
-import org.matt.kata.mod.domain.app.program.Program;
-import org.matt.kata.mod.domain.app.program.ProgramException;
-import org.matt.kata.mod.domain.app.program.ProgramLoader;
+import org.matt.kata.mod.application.program.Program;
+import org.matt.kata.mod.application.program.ProgramException;
+import org.matt.kata.mod.application.program.ProgramLoader;
 import org.matt.kata.mod.domain.model.commands.Command;
 
 import static java.text.MessageFormat.format;

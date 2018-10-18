@@ -1,6 +1,6 @@
-package org.matt.kata.mod.domain.app.program;
+package org.matt.kata.mod.application.program;
 
-import org.matt.kata.mod.domain.app.Utils;
+import org.matt.kata.mod.application.Utils;
 import org.matt.kata.mod.domain.model.commands.Command;
 import org.matt.kata.mod.domain.model.commands.MoveForwardCommand;
 import org.matt.kata.mod.domain.model.commands.TurnLeftCommand;

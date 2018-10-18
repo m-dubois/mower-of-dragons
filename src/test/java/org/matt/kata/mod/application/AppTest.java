@@ -1,6 +1,7 @@
 package org.matt.kata.mod.domain.app;
 
 import org.junit.Test;
+import org.matt.kata.mod.application.App;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

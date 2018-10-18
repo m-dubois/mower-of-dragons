@@ -1,4 +1,4 @@
-package org.matt.kata.mod.domain.app.program;
+package org.matt.kata.mod.application.program;
 
 import org.matt.kata.mod.domain.model.Lawn;
 import org.matt.kata.mod.domain.model.Mower;

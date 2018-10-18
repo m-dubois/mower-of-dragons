@@ -1,4 +1,4 @@
-package org.matt.kata.mod.domain.app;
+package org.matt.kata.mod.application;
 
 public class Utils {
 

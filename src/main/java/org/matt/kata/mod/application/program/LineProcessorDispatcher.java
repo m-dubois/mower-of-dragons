@@ -1,4 +1,4 @@
-package org.matt.kata.mod.domain.app.program;
+package org.matt.kata.mod.application.program;
 
 class LineProcessorDispatcher {
 

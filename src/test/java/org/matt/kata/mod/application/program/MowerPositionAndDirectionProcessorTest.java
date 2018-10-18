@@ -1,7 +1,9 @@
-package org.matt.kata.mod.domain.app.program;
+package org.matt.kata.mod.application.program;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.matt.kata.mod.application.program.MowerPositionAndDirectionLineProcessor;
+import org.matt.kata.mod.application.program.ProgramException;
 import org.matt.kata.mod.domain.model.Direction;
 import org.matt.kata.mod.domain.model.Mower;
 

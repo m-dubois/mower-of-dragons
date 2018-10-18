@@ -1,6 +1,7 @@
-package org.matt.kata.mod.domain.app.program;
+package org.matt.kata.mod.application.program;
 
 import org.junit.Test;
+import org.matt.kata.mod.application.program.LineProcessorDispatcher;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

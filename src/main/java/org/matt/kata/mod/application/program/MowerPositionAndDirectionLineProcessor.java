@@ -1,6 +1,6 @@
-package org.matt.kata.mod.domain.app.program;
+package org.matt.kata.mod.application.program;
 
-import org.matt.kata.mod.domain.app.Utils;
+import org.matt.kata.mod.application.Utils;
 import org.matt.kata.mod.domain.model.Direction;
 import org.matt.kata.mod.domain.model.Mower;
 import org.matt.kata.mod.domain.service.MowerService;
