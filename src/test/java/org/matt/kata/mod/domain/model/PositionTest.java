@@ -30,4 +30,10 @@ public class PositionTest {
         Assert.assertFalse(position.equals(""));
     }
 
+    @Test
+    public void toStringTest() {
+        Position position = new Position(1, 2);
+        Assert.assertEquals("(1, 2)", position.toString());
+    }
+
 }

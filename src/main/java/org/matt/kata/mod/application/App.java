@@ -22,9 +22,9 @@ public class App {
                 Program program = programService.loadFrom(args[1]);
                 program.getMowers().forEach(mower -> {
                     mower.getCommands().forEach(Command::execute);
-                    System.out.println(mower.getPosition().getX() + " "
+                    System.out.print(mower.getPosition().getX() + " "
                             + mower.getPosition().getY() + " "
-                            + mower.getDirection().getOneLetter());
+                            + mower.getDirection().getOneLetter() + "\n");
                 });
 
             } catch (ProgramException e) {

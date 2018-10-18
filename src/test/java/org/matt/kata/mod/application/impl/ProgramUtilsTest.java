@@ -9,7 +9,7 @@ import java.lang.reflect.InvocationTargetException;
 public class ProgramUtilsTest {
 
     @Test(expected = InvocationTargetException.class)
-    public void privateconstructorTest() throws Exception {
+    public void privateConstructorTest() throws Exception {
 
         Constructor<ProgramUtils> c = ProgramUtils.class.getDeclaredConstructor();
         c.setAccessible(true);
