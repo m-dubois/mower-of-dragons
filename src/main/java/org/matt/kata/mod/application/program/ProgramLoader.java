@@ -23,7 +23,7 @@ public class ProgramLoader {
      */
     public static Program loadFrom(String programString) throws ProgramException {
 
-        String[] lines = programString.split(System.getProperty("line.separator"));
+        String[] lines = programString.split("\\r?\\n");
 
         Program program = new Program();
         Mower mower = null;
