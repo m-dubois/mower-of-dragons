@@ -27,7 +27,7 @@ mvn clean package
 mvn test
 ```
 
-##Running the application
+## Running the application
 
 This application is a CLI. To run it:
 
